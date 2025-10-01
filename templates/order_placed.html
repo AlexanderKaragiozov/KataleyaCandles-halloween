@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поръчката е Завършена! - Призрачна Радост!</title>
+    <!-- Fonts (from landing page template) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Open+Sans:wght@700&family=Creepster&display=swap" rel="stylesheet">
+
+    <style>
+        /* Basic Reset & Body Styles - Matching Classic Spooky Fun Theme */
+        body {
+            margin: 0;
+            font-family: 'Noto Sans', sans-serif;
+            font-weight: 300;
+            color: #f0f0f0; /* Lighter text for dark background */
+            line-height: 1.6;
+            background-color: #1a1a1a; /* Dark base background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Creepster', cursive; /* Spooky font for headings */
+            font-weight: 700;
+            color: #ff6f00; /* Halloween orange for headings */
+            margin-top: 0;
+            margin-bottom: 1rem;
+            line-height: 1.2em;
+        }
+        h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 2.5rem; margin-top: 1.5rem; }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 18px; /* Slightly larger for readability */
+            color: #f0f0f0;
+        }
+        p strong { font-weight: 700; color: #ff9900; } /* Highlight strong text */
+
+        a {
+            color: #a020f0; /* Purple link color */
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+
+        /* Container for the page content */
+        .order-complete-container {
+            background-color: #2a003a; /* Dark purple background for content box */
+            border: 3px dashed #ff6f00; /* Orange dashed border */
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 0 25px rgba(255, 111, 0, 0.5); /* Glowing orange shadow */
+            position: relative;
+            overflow: hidden; /* For decorative elements */
+        }
+
+        /* Decorative elements */
+        .ghost-icon, .pumpkin-icon {
+            position: absolute;
+            font-size: 80px; /* Large icons */
+            opacity: 0.2; /* Subtle */
+            pointer-events: none; /* Don't interfere with clicks */
+        }
+        .ghost-icon {
+            top: 10%;
+            left: 5%;
+            color: #b19cd9; /* Muted purple-white */
+            transform: rotate(-15deg);
+        }
+        .pumpkin-icon {
+            bottom: 15%;
+            right: 8%;
+            color: #ff6f00; /* Orange */
+            transform: rotate(20deg);
+        }
+
+        /* Buttons - Matching Classic Spooky Fun Theme */
+        .et_pb_button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #FFFFFF;
+            background-color: #ff6f00; /* Halloween orange */
+            border: 0px solid transparent;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(255, 111, 0, 0.4);
+            margin-top: 25px; /* Spacing from text */
+        }
+        .et_pb_button:hover {
+            background-color: #e66000; /* Darker shade on hover */
+            color: #FFFFFF;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 111, 0, 0.6);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            p { font-size: 16px; }
+            .order-complete-container {
+                padding: 30px 20px;
+            }
+            .et_pb_button {
+                font-size: 18px;
+                padding: 12px 25px;
+            }
+            .ghost-icon, .pumpkin-icon {
+                font-size: 60px;
+                opacity: 0.15;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; margin-bottom: 1rem; }
+            h2 { font-size: 1.6rem; margin-top: 1rem; }
+            p { font-size: 14px; }
+            .order-complete-container {
+                padding: 25px 15px;
+            }
+            .et_pb_button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+            .ghost-icon { top: 5%; left: 2%; font-size: 45px; }
+            .pumpkin-icon { bottom: 10%; right: 3%; font-size: 45px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="order-complete-container">
+        <!-- Decorative Icons -->
+        <span class="ghost-icon">👻</span>
+        <span class="pumpkin-icon">🎃</span>
+
+        <h1>Вашата Поръчка е Завършена!</h1>
+        <p>Благодарим ви, че избрахте свещи "Нощна Магия" за вашия Хелоуин празник!</p>
+        <p>Получихме успешно вашата поръчка. Очаквайте потвърждение и детайли за доставка на посочения от вас имейл адрес.</p>
+        <p>Пригответе се за <strong>призрачен уют и незабравима атмосфера</strong>!</p>
+
+        <h2>Какво предстои?</h2>
+        <p>
+            Ще получите имейл с номера на поръчката и очакван срок за доставка в рамките на няколко минути. Моля, проверете и папката за спам.
+        </p>
+        <p>
+            Ако имате въпроси, не се колебайте да се свържете с нас.
+        </p>
+
+        <div>
+            <a href="URL_TO_SHOP_OR_HOME_PAGE" class="et_pb_button">Разгледай още Призрачни Продукти</a>
+        </div>
+    </div>
+
+</body>
+</html>
