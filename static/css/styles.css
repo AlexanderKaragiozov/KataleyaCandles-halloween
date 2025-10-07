@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
 /* Basic Reset & Body Styles */
 body {
     margin: 0;
@@ -9,8 +11,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Noto Sans', sans-serif; /* FIXED: Changed from 'Arial', cursive to Noto Sans for readability */
-    font-weight: 700;
+    font-family: 'Creepster', cursive; /* Spooky font for headings */
+    font-weight: 400; /* Creepster is usually best at its normal weight */
     color: #ff6f00; /* Halloween orange for headings */
     margin-top: 0;
     margin-bottom: 1rem;
@@ -22,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Optional: prevent iOS from resizing text automatically */
     -webkit-text-size-adjust: 100%;
-    }
+}
 
 h1 { font-size: 3.5rem; } /* Larger for impact */
 h2 { font-size: 2.8rem; }
@@ -114,8 +116,8 @@ img { max-width: 100%; height: auto; display: block;
     /*border-bottom: 2px dashed #ff6f00;*/
 }
 .et_pb_countdown_timer h4.title {
-    font-family: 'Noto Sans', sans-serif; /* FIXED: Changed from 'Arial', cursive for readability */
-    font-weight: 700;
+    font-family: 'Creepster', cursive;
+    font-weight: 400; /* Creepster is usually best at its normal weight */
     font-style: normal;
     text-transform: uppercase;
     color: #ff9900; /* Gold-orange title */
@@ -190,7 +192,11 @@ img { max-width: 100%; height: auto; display: block;
 }
 
 /* Text Module Basic */
-.et_pb_text h1, .et_pb_text h2, .et_pb_text h3, .et_pb_text h4 { color: #ff6f00; font-family: 'Noto Sans', sans-serif;} /* FIXED: Changed from 'Arial', cursive for readability */
+.et_pb_text h1, .et_pb_text h2, .et_pb_text h3, .et_pb_text h4 {
+    color: #ff6f00;
+    font-family: 'Creepster', cursive;
+    font-weight: 400; /* Creepster is usually best at its normal weight */
+}
 .et_pb_text p, .et_pb_text li { font-size: 16px; color: #f0f0f0;}
 .et_pb_text ul { padding-left: 20px; margin-bottom: 1rem; }
 .et_pb_text li { margin-bottom: 0.5rem; }
@@ -334,7 +340,8 @@ img { max-width: 100%; height: auto; display: block;
 .site-footer .et_pb_text h1 {
      font-size: 28px;
      color: #ff9900;
-     font-family: 'Noto Sans', sans-serif; /* Added for consistency, based on main heading fix */
+     font-family: 'Creepster', cursive; /* Added for consistency */
+     font-weight: 400; /* Creepster is usually best at its normal weight */
 }
 .site-footer .et_pb_text p, .site-footer .et_pb_text a {
      font-size: 16px;
