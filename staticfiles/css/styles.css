@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Noto+Sans:wght@300;400;700&display=swap');
+/* Removed Creepster, ensuring Open Sans and Noto Sans are imported */
 
 /* Basic Reset & Body Styles */
 body {
@@ -11,8 +12,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Creepster', cursive; /* Spooky font for headings */
-    font-weight: 400; /* Creepster is usually best at its normal weight */
+    font-family: 'Open Sans', sans-serif; /* CHANGED: Replaced Creepster with Open Sans for readability */
+    font-weight: 700;
     color: #ff6f00; /* Halloween orange for headings */
     margin-top: 0;
     margin-bottom: 1rem;
@@ -116,8 +117,8 @@ img { max-width: 100%; height: auto; display: block;
     /*border-bottom: 2px dashed #ff6f00;*/
 }
 .et_pb_countdown_timer h4.title {
-    font-family: 'Creepster', cursive;
-    font-weight: 400; /* Creepster is usually best at its normal weight */
+    font-family: 'Open Sans', sans-serif; /* CHANGED: Replaced Creepster with Open Sans */
+    font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
     color: #ff9900; /* Gold-orange title */
@@ -194,8 +195,8 @@ img { max-width: 100%; height: auto; display: block;
 /* Text Module Basic */
 .et_pb_text h1, .et_pb_text h2, .et_pb_text h3, .et_pb_text h4 {
     color: #ff6f00;
-    font-family: 'Creepster', cursive;
-    font-weight: 400; /* Creepster is usually best at its normal weight */
+    font-family: 'Open Sans', sans-serif; /* CHANGED: Replaced Creepster with Open Sans */
+    font-weight: 700; /* Maintain bold appearance */
 }
 .et_pb_text p, .et_pb_text li { font-size: 16px; color: #f0f0f0;}
 .et_pb_text ul { padding-left: 20px; margin-bottom: 1rem; }
@@ -340,8 +341,8 @@ img { max-width: 100%; height: auto; display: block;
 .site-footer .et_pb_text h1 {
      font-size: 28px;
      color: #ff9900;
-     font-family: 'Creepster', cursive; /* Added for consistency */
-     font-weight: 400; /* Creepster is usually best at its normal weight */
+     font-family: 'Open Sans', sans-serif; /* CHANGED: Replaced Creepster with Open Sans */
+     font-weight: 700; /* Maintain bold appearance */
 }
 .site-footer .et_pb_text p, .site-footer .et_pb_text a {
      font-size: 16px;
