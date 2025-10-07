@@ -1,526 +1,527 @@
 /* Basic Reset & Body Styles */
-        body {
-            margin: 0;
-            font-family: 'Noto Sans', sans-serif;
-            font-weight: 300;
-            color: #f0f0f0; /* Lighter text for dark background */
-            line-height: 1.6;
-            background-color: #1a1a1a; /* Dark base background */
-        }
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    color: #f0f0f0; /* Lighter text for dark background */
+    line-height: 1.6;
+    background-color: #1a1a1a; /* Dark base background */
+}
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family:  'Arial', cursive; /* Fallbacks for iOS */
-            font-weight: 700;
-            color: #ff6f00; /* Halloween orange for headings */
-            margin-top: 0;
-            margin-bottom: 1rem;
-            line-height: 1.2em;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans', sans-serif; /* FIXED: Changed from 'Arial', cursive to Noto Sans for readability */
+    font-weight: 700;
+    color: #ff6f00; /* Halloween orange for headings */
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.2em;
 
-            /* Smoothing for better rendering */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+    /* Smoothing for better rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-            /* Optional: prevent iOS from resizing text automatically */
-            -webkit-text-size-adjust: 100%;
-            }
+    /* Optional: prevent iOS from resizing text automatically */
+    -webkit-text-size-adjust: 100%;
+    }
 
-        h1 { font-size: 3.5rem; } /* Larger for impact */
-        h2 { font-size: 2.8rem; }
-        h3 { font-size: 2.2rem; }
-        h4 { font-size: 1.8rem; }
+h1 { font-size: 3.5rem; } /* Larger for impact */
+h2 { font-size: 2.8rem; }
+h3 { font-size: 2.2rem; }
+h4 { font-size: 1.8rem; }
 
-        p {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            font-size: 16px;
-            color: #f0f0f0;
-        }
-        p strong { font-weight: 700; color: #ff9900; } /* Highlight strong text */
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 16px;
+    color: #f0f0f0;
+}
+p strong { font-weight: 700; color: #ff9900; } /* Highlight strong text */
 
-        a {
-            color: #a020f0; /* Purple link color */
-            text-decoration: none;
-        }
-        a:hover { text-decoration: underline; }
+a {
+    color: #a020f0; /* Purple link color */
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
 
-        /* Section & Row Basic Structure */
-        .et_pb_section {
-            padding: 60px 20px; /* Default padding, adjust as needed */
-            box-sizing: border-box;
-            width: 100%;
-            background-color: #1a1a1a; /* Default dark section background */
-        }
-        .et_pb_section.fullwidth { padding: 0; }
+/* Section & Row Basic Structure */
+.et_pb_section {
+    padding: 60px 20px; /* Default padding, adjust as needed */
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #1a1a1a; /* Default dark section background */
+}
+.et_pb_section.fullwidth { padding: 0; }
 
-        .et_pb_row {
-            max-width: 1080px; /* Standard Divi width */
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px; /* Spacing between columns */
-            align-items: flex-start; /* Default alignment */
-        }
-        /* Centering for benefit section and similar layouts */
-        .et_pb_section.centered-content .et_pb_row {
-            justify-content: center;
-            align-items: center;
-        }
+.et_pb_row {
+    max-width: 1080px; /* Standard Divi width */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Spacing between columns */
+    align-items: flex-start; /* Default alignment */
+}
+/* Centering for benefit section and similar layouts */
+.et_pb_section.centered-content .et_pb_row {
+    justify-content: center;
+    align-items: center;
+}
 
-        /* Column Structure */
-        .et_pb_column { flex: 1; min-width: 0; }
-        .et_pb_column_4_4 { flex-basis: 100%; }
-        .et_pb_column_1_2 { flex-basis: calc(50% - 15px); } /* Adjust for gap */
-        .et_pb_column_1_3 { flex-basis: calc(33.333% - 20px); } /* Adjust for gap */
-        .et_pb_column_1_4 { flex-basis: calc(25% - 22.5px); } /* Adjust for gap */
-        .et_pb_column_3_4 { flex-basis: calc(75% - 7.5px); } /* Adjust for gap */
+/* Column Structure */
+.et_pb_column { flex: 1; min-width: 0; }
+.et_pb_column_4_4 { flex-basis: 100%; }
+.et_pb_column_1_2 { flex-basis: calc(50% - 15px); } /* Adjust for gap */
+.et_pb_column_1_3 { flex-basis: calc(33.333% - 20px); } /* Adjust for gap */
+.et_pb_column_1_4 { flex-basis: calc(25% - 22.5px); } /* Adjust for gap */
+.et_pb_column_3_4 { flex-basis: calc(75% - 7.5px); } /* Adjust for gap */
 
-        /* Images */
-        img { max-width: 100%; height: auto; display: block;
-            border-radius: 1rem;  }
+/* Images */
+img { max-width: 100%; height: auto; display: block;
+    border-radius: 1rem;  }
 
-        /* Buttons */
-        .et_pb_button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            color: #FFFFFF;
-            background-color: #ff6f00; /* Halloween orange */
-            border: 0px solid transparent;
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(255, 111, 0, 0.4);
-            margin-bottom: 1.3rem;
-        }
-        .et_pb_button:hover {
-            background-color: #e66000; /* Darker shade on hover */
-            color: #FFFFFF;
-            text-decoration: none;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 111, 0, 0.6);
-        }
-        .et_pb_button_center { display: block; text-align: center; } /* For alignment */
-        .et_pb_button_wrapper { text-align: center; margin-top: 30px; } /* Wrapper for centering */
+/* Buttons */
+.et_pb_button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #FFFFFF;
+    background-color: #ff6f00; /* Halloween orange */
+    border: 0px solid transparent;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(255, 111, 0, 0.4);
+    margin-bottom: 1.3rem;
+}
+.et_pb_button:hover {
+    background-color: #e66000; /* Darker shade on hover */
+    color: #FFFFFF;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 111, 0, 0.6);
+}
+.et_pb_button_center { display: block; text-align: center; } /* For alignment */
+.et_pb_button_wrapper { text-align: center; margin-top: 30px; } /* Wrapper for centering */
 
-        /* Countdown Timer Styles */
-        .et_pb_countdown_timer {
-            background-color: #330033; /* Dark purple background */
-            padding: 25px 0;
-            text-align: center;
-            /*border-bottom: 2px dashed #ff6f00;*/
-        }
-        .et_pb_countdown_timer h4.title {
-            font-family: 'Arial', cursive;
-            font-weight: 700;
-            font-style: normal;
-            text-transform: uppercase;
-            color: #ff9900; /* Gold-orange title */
-            font-size: 28px;
-            line-height: 1.2em;
-            margin-bottom: 25px;
-        }
-        .et_pb_countdown_timer .sections {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        .et_pb_countdown_timer .section {
-            display: inline-block;
-            text-align: center;
-        }
-         .et_pb_countdown_timer .section.values { /* As per custom CSS */
-             width: auto !important; /* Override potential wider setting */
-         }
-        .et_pb_countdown_timer .section p { margin: 0; }
-        .et_pb_countdown_timer .section .value {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 700;
-            font-size: 42px;
-            color: #ff6f00; /* Orange numbers */
-            line-height: 1;
-        }
-        .et_pb_countdown_timer .section .label {
-            font-family: 'Noto Sans', sans-serif;
-            font-weight: 300;
-            font-size: 16px;
-            color: #f0f0f0; /* Light gray labels */
-            line-height: 12px;
-            margin-top: 5px;
-        }
-        .et_pb_countdown_timer .sep {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 700;
-            font-size: 32px;
-            color: #f0f0f0; /* Light gray separator */
-            align-self: center; /* Align vertically with numbers */
-            line-height: 42px; /* Match number size */
-        }
+/* Countdown Timer Styles */
+.et_pb_countdown_timer {
+    background-color: #330033; /* Dark purple background */
+    padding: 25px 0;
+    text-align: center;
+    /*border-bottom: 2px dashed #ff6f00;*/
+}
+.et_pb_countdown_timer h4.title {
+    font-family: 'Noto Sans', sans-serif; /* FIXED: Changed from 'Arial', cursive for readability */
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    color: #ff9900; /* Gold-orange title */
+    font-size: 28px;
+    line-height: 1.2em;
+    margin-bottom: 25px;
+}
+.et_pb_countdown_timer .sections {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.et_pb_countdown_timer .section {
+    display: inline-block;
+    text-align: center;
+}
+ .et_pb_countdown_timer .section.values { /* As per custom CSS */
+     width: auto !important; /* Override potential wider setting */
+ }
+.et_pb_countdown_timer .section p { margin: 0; }
+.et_pb_countdown_timer .section .value {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    color: #ff6f00; /* Orange numbers */
+    line-height: 1;
+}
+.et_pb_countdown_timer .section .label {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #f0f0f0; /* Light gray labels */
+    line-height: 12px;
+    margin-top: 5px;
+}
+.et_pb_countdown_timer .sep {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #f0f0f0; /* Light gray separator */
+    align-self: center; /* Align vertically with numbers */
+    line-height: 42px; /* Match number size */
+}
 
-        /* Blurb Styles (Icon Left) */
-        .et_pb_blurb {
-            display: flex;
-            align-items: flex-start; /* Align icon top */
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        .et_pb_blurb_icon {
-            font-family: "ETmodules", sans-serif; /* Assuming Divi's icon font, keep sans-serif fallback */
-            font-size: 38px;
-            color: #a020f0; /* Purple icon color */
-             flex-shrink: 0;
-        }
-        .et_pb_blurb_content h4 {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 700;
-            color: #ff9900; /* Gold-orange for blurb titles */
-            line-height: 1.5em;
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-        .et_pb_blurb_content p {
-            font-family: 'Noto Sans', sans-serif;
-            font-weight: 300;
-            color: #f0f0f0;
-            font-size: 16px;
-            margin-bottom: 0;
-        }
+/* Blurb Styles (Icon Left) */
+.et_pb_blurb {
+    display: flex;
+    align-items: flex-start; /* Align icon top */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.et_pb_blurb_icon {
+    font-family: "ETmodules", sans-serif; /* Assuming Divi's icon font, keep sans-serif fallback */
+    font-size: 38px;
+    color: #a020f0; /* Purple icon color */
+     flex-shrink: 0;
+}
+.et_pb_blurb_content h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    color: #ff9900; /* Gold-orange for blurb titles */
+    line-height: 1.5em;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.et_pb_blurb_content p {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    color: #f0f0f0;
+    font-size: 16px;
+    margin-bottom: 0;
+}
 
-        /* Text Module Basic */
-        .et_pb_text h1, .et_pb_text h2, .et_pb_text h3, .et_pb_text h4 { color: #ff6f00; font-family: 'Arial', cursive;}
-        .et_pb_text p, .et_pb_text li { font-size: 16px; color: #f0f0f0;}
-        .et_pb_text ul { padding-left: 20px; margin-bottom: 1rem; }
-        .et_pb_text li { margin-bottom: 0.5rem; }
-        .text-center { text-align: center; }
+/* Text Module Basic */
+.et_pb_text h1, .et_pb_text h2, .et_pb_text h3, .et_pb_text h4 { color: #ff6f00; font-family: 'Noto Sans', sans-serif;} /* FIXED: Changed from 'Arial', cursive for readability */
+.et_pb_text p, .et_pb_text li { font-size: 16px; color: #f0f0f0;}
+.et_pb_text ul { padding-left: 20px; margin-bottom: 1rem; }
+.et_pb_text li { margin-bottom: 0.5rem; }
+.text-center { text-align: center; }
 
-        /* Toggle Styles */
-        .et_pb_toggle {
-            margin-bottom: 15px;
-            border: 1px solid #a020f0; /* Purple border */
-            border-radius: 5px;
-             overflow: hidden;
-        }
-        .et_pb_toggle_title {
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 1.2em;
-            padding: 18px 25px;
-            cursor: pointer;
-            background-color: #330033; /* Dark purple background */
-            color: #ff9900; /* Gold-orange title */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-         .et_pb_toggle_title::after {
-            content: '+';
-            font-size: 26px;
-            font-weight: 700;
-            color: #ff6f00; /* Orange icon */
-            transition: transform 0.3s ease;
-         }
-        .et_pb_toggle.et_pb_toggle_open .et_pb_toggle_title::after {
-             content: '-';
-             transform: rotate(180deg);
-             color: #ff6f00;
-         }
-        .et_pb_toggle_content {
-            padding: 25px;
-            background-color: #1a1a1a; /* Dark content background */
-            color: #f0f0f0;
-            display: none;
-        }
-         .et_pb_toggle.et_pb_toggle_open .et_pb_toggle_content {
-             display: block;
-         }
-        .et_pb_toggle_content p {
-             font-family: 'Noto Sans', sans-serif;
-             font-weight: 300;
-             font-size: 16px;
-             color: #f0f0f0;
-         }
+/* Toggle Styles */
+.et_pb_toggle {
+    margin-bottom: 15px;
+    border: 1px solid #a020f0; /* Purple border */
+    border-radius: 5px;
+     overflow: hidden;
+}
+.et_pb_toggle_title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2em;
+    padding: 18px 25px;
+    cursor: pointer;
+    background-color: #330033; /* Dark purple background */
+    color: #ff9900; /* Gold-orange title */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+ .et_pb_toggle_title::after {
+    content: '+';
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff6f00; /* Orange icon */
+    transition: transform 0.3s ease;
+ }
+.et_pb_toggle.et_pb_toggle_open .et_pb_toggle_title::after {
+     content: '-';
+     transform: rotate(180deg);
+     color: #ff6f00;
+ }
+.et_pb_toggle_content {
+    padding: 25px;
+    background-color: #1a1a1a; /* Dark content background */
+    color: #f0f0f0;
+    display: none;
+}
+ .et_pb_toggle.et_pb_toggle_open .et_pb_toggle_content {
+     display: block;
+ }
+.et_pb_toggle_content p {
+     font-family: 'Noto Sans', sans-serif;
+     font-weight: 300;
+     font-size: 16px;
+     color: #f0f0f0;
+ }
 
-        /* Contact Form Styles */
-        .et_pb_contact_field label {
-             display: block;
-             margin-bottom: 8px;
-             font-weight: 700;
-             font-family: 'Noto Sans', sans-serif;
-             font-size: 18px;
-             color: #ff9900; /* Gold-orange label color */
-        }
-        .et_pb_contact_field input[type="text"],
-        .et_pb_contact_field input[type="tel"],
-        .et_pb_contact_field textarea,
-        .et_pb_contact_field select {
-            width: 100%;
-            padding: 12px 18px;
-            border: 1px solid #a020f0; /* Purple border */
-            border-radius: 5px;
-            font-family: 'Noto Sans', sans-serif;
-            font-weight: 300;
-            font-size: 16px;
-            background-color: #2a003a; /* Dark purple field background */
-            color: #f0f0f0; /* Light text color */
-            box-sizing: border-box;
-            transition: border-color 0.3s ease, background-color 0.3s ease;
-        }
-        .et_pb_contact_field select {
-             appearance: none;
-             background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6f00%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
-             background-repeat: no-repeat;
-             background-position: right 15px center;
-             background-size: 15px auto;
-             padding-right: 40px;
-        }
-         /* Focus styles from template */
-        .et_pb_contact_field input[type="text"]:focus,
-        .et_pb_contact_field input[type="tel"]:focus,
-        .et_pb_contact_field textarea:focus,
-        .et_pb_contact_field select:focus {
-            outline: none;
-            border-color: #ff6f00; /* Orange focus color */
-            background-color: #330033; /* Darker purple focus background */
-            color: #f0f0f0;
-        }
-         /* Checkbox specific styling */
-         .et_pb_contact_field_checkbox label {
-             display: flex;
-             align-items: center;
-             gap: 10px;
-             font-weight: 300;
-             color: #f0f0f0;
-         }
-         .et_pb_contact_field_checkbox input[type="checkbox"] {
-             accent-color: #ff6f00; /* Use orange for checkbox */
-             width: 20px;
-             height: 20px;
-             cursor: pointer;
-         }
-         .et_contact_bottom_container {
-             width: 100%;
-             display: flex;
-             flex-direction: column;
-             gap: 1em;
-             margin-top: 25px;
-         }
-         .et_contact_bottom_container button.et_pb_button {
-             width: 100%;
-             margin: 0;
-         }
+/* Contact Form Styles */
+.et_pb_contact_field label {
+     display: block;
+     margin-bottom: 8px;
+     font-weight: 700;
+     font-family: 'Noto Sans', sans-serif;
+     font-size: 18px;
+     color: #ff9900; /* Gold-orange label color */
+}
+.et_pb_contact_field input[type="text"],
+.et_pb_contact_field input[type="tel"],
+.et_pb_contact_field textarea,
+.et_pb_contact_field select {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #a020f0; /* Purple border */
+    border-radius: 5px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    background-color: #2a003a; /* Dark purple field background */
+    color: #f0f0f0; /* Light text color */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.et_pb_contact_field select {
+     appearance: none;
+     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6f00%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+     background-repeat: no-repeat;
+     background-position: right 15px center;
+     background-size: 15px auto;
+     padding-right: 40px;
+}
+ /* Focus styles from template */
+.et_pb_contact_field input[type="text"]:focus,
+.et_pb_contact_field input[type="tel"]:focus,
+.et_pb_contact_field textarea:focus,
+.et_pb_contact_field select:focus {
+    outline: none;
+    border-color: #ff6f00; /* Orange focus color */
+    background-color: #330033; /* Darker purple focus background */
+    color: #f0f0f0;
+}
+ /* Checkbox specific styling */
+ .et_pb_contact_field_checkbox label {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     font-weight: 300;
+     color: #f0f0f0;
+ }
+ .et_pb_contact_field_checkbox input[type="checkbox"] {
+     accent-color: #ff6f00; /* Use orange for checkbox */
+     width: 20px;
+     height: 20px;
+     cursor: pointer;
+ }
+ .et_contact_bottom_container {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     gap: 1em;
+     margin-top: 25px;
+ }
+ .et_contact_bottom_container button.et_pb_button {
+     width: 100%;
+     margin: 0;
+ }
 
-        /* Divider Styles */
-        .et_pb_divider {
-            border-bottom: 1px solid #a020f0; /* Purple divider */
-            margin: -10px auto 0px auto;
-            width: 80%;
-            height: 1px;
-            background-color: transparent;
-        }
+/* Divider Styles */
+.et_pb_divider {
+    border-bottom: 1px solid #a020f0; /* Purple divider */
+    margin: -10px auto 0px auto;
+    width: 80%;
+    height: 1px;
+    background-color: transparent;
+}
 
-        /* Footer Styles */
-        .site-footer {
-            background-color: #000000; /* Solid black footer */
-            color: #f0f0f0;
-            padding: 40px 20px;
-            border-top: 3px solid #ff6f00;
-        }
-        .site-footer .et_pb_row { align-items: center; }
-        .site-footer .et_pb_text h1 {
-             font-size: 28px;
-             color: #ff9900;
-        }
-        .site-footer .et_pb_text p, .site-footer .et_pb_text a {
-             font-size: 16px;
-             color: #f0f0f0;
-        }
-        .site-footer .et_pb_text a:hover { color: #a020f0; }
+/* Footer Styles */
+.site-footer {
+    background-color: #000000; /* Solid black footer */
+    color: #f0f0f0;
+    padding: 40px 20px;
+    border-top: 3px solid #ff6f00;
+}
+.site-footer .et_pb_row { align-items: center; }
+.site-footer .et_pb_text h1 {
+     font-size: 28px;
+     color: #ff9900;
+     font-family: 'Noto Sans', sans-serif; /* Added for consistency, based on main heading fix */
+}
+.site-footer .et_pb_text p, .site-footer .et_pb_text a {
+     font-size: 16px;
+     color: #f0f0f0;
+}
+.site-footer .et_pb_text a:hover { color: #a020f0; }
 
 
-        /* Responsive Styles */
-        @media (max-width: 980px) { /* Tablet Breakpoint */
-             .et_pb_row { flex-direction: column; gap: 20px; }
-             .et_pb_column_1_2, .et_pb_column_1_3, .et_pb_column_1_4, .et_pb_column_3_4 {
-                 flex-basis: 100%;
-             }
-             .desktop-only { display: none !important; }
-             .mobile-tablet-only { display: block !important; }
-             .mobile-tablet-only .et_pb_row { display: flex; flex-direction: column; }
-             .mobile-tablet-only .et_pb_column { width: 100%; }
+/* Responsive Styles */
+@media (max-width: 980px) { /* Tablet Breakpoint */
+     .et_pb_row { flex-direction: column; gap: 20px; }
+     .et_pb_column_1_2, .et_pb_column_1_3, .et_pb_column_1_4, .et_pb_column_3_4 {
+         flex-basis: 100%;
+     }
+     .desktop-only { display: none !important; }
+     .mobile-tablet-only { display: block !important; }
+     .mobile-tablet-only .et_pb_row { display: flex; flex-direction: column; }
+     .mobile-tablet-only .et_pb_column { width: 100%; }
 
-             /* Adjust font sizes */
-             h1 { font-size: 3rem; }
-             h2 { font-size: 2.4rem; }
-             h3 { font-size: 1.8rem; }
-             h4 { font-size: 1.6rem; }
+     /* Adjust font sizes */
+     h1 { font-size: 3rem; }
+     h2 { font-size: 2.4rem; }
+     h3 { font-size: 1.8rem; }
+     h4 { font-size: 1.6rem; }
 
-             .et_pb_countdown_timer h4.title { font-size: 24px; }
-             .et_pb_countdown_timer .section .value { font-size: 36px; }
-             .et_pb_countdown_timer .section .label { font-size: 14px; }
-             .et_pb_blurb_content h4 { font-size: 18px; }
-             .et_pb_toggle_title { font-size: 18px; }
-             .et_pb_button { font-size: 20px; padding: 12px 25px; }
-             .site-footer .et_pb_text h1 { font-size: 24px; }
-             .site-footer .et_pb_text p, .site-footer .et_pb_text a { font-size: 15px; }
+     .et_pb_countdown_timer h4.title { font-size: 24px; }
+     .et_pb_countdown_timer .section .value { font-size: 36px; }
+     .et_pb_countdown_timer .section .label { font-size: 14px; }
+     .et_pb_blurb_content h4 { font-size: 18px; }
+     .et_pb_toggle_title { font-size: 18px; }
+     .et_pb_button { font-size: 20px; padding: 12px 25px; }
+     .site-footer .et_pb_text h1 { font-size: 24px; }
+     .site-footer .et_pb_text p, .site-footer .et_pb_text a { font-size: 15px; }
 
-             /* Specific mobile/tablet stacking for "Why Choose" */
-             .custom-stack-order .et_pb_column:nth-child(2) { order: 1; }
-             .custom-stack-order .et_pb_column:nth-child(1) { order: 2; }
+     /* Specific mobile/tablet stacking for "Why Choose" */
+     .custom-stack-order .et_pb_column:nth-child(2) { order: 1; }
+     .custom-stack-order .et_pb_column:nth-child(1) { order: 2; }
 
-             /* Content Section (Table simulation) mobile */
-             .content-section-mobile .et_pb_row { gap: 15px; }
-             .content-section-mobile .et_pb_text h1 { text-align: center; }
-             .content-section-mobile .et_pb_text h4 { font-size: 20px; margin-bottom: 5px; text-align: left;}
-             .content-section-mobile .et_pb_text p { font-size: 16px; margin-bottom: 15px; text-align: left;}
+     /* Content Section (Table simulation) mobile */
+     .content-section-mobile .et_pb_row { gap: 15px; }
+     .content-section-mobile .et_pb_text h1 { text-align: center; }
+     .content-section-mobile .et_pb_text h4 { font-size: 20px; margin-bottom: 5px; text-align: left;}
+     .content-section-mobile .et_pb_text p { font-size: 16px; margin-bottom: 15px; text-align: left;}
 
-             /* Footer Links */
-             .site-footer .et_pb_column_1_3 { text-align: center;}
-             .site-footer .et_pb_divider { display: none; }
+     /* Footer Links */
+     .site-footer .et_pb_column_1_3 { text-align: center;}
+     .site-footer .et_pb_divider { display: none; }
 
-        }
+}
 
-        @media (max-width: 767px) { /* Phone Breakpoint */
-             h1 { font-size: 2.5rem; }
-             h2 { font-size: 2rem; }
-             h3 { font-size: 1.6rem; }
-             h4 { font-size: 1.4rem; }
+@media (max-width: 767px) { /* Phone Breakpoint */
+     h1 { font-size: 2.5rem; }
+     h2 { font-size: 2rem; }
+     h3 { font-size: 1.6rem; }
+     h4 { font-size: 1.4rem; }
 
-             .et_pb_countdown_timer h4.title { font-size: 20px; }
-             .et_pb_countdown_timer .section .value { font-size: 32px; }
-             .et_pb_countdown_timer .section .label { font-size: 12px; }
-             .et_pb_button { font-size: 18px; padding: 10px 20px; }
-             .et_pb_blurb_content h4 { font-size: 17px; }
-             .et_pb_toggle_title { font-size: 17px; }
-             .site-footer .et_pb_text h1 { font-size: 20px; }
-             .site-footer .et_pb_text p, .site-footer .et_pb_text a { font-size: 14px; }
-        }
+     .et_pb_countdown_timer h4.title { font-size: 20px; }
+     .et_pb_countdown_timer .section .value { font-size: 32px; }
+     .et_pb_countdown_timer .section .label { font-size: 12px; }
+     .et_pb_button { font-size: 18px; padding: 10px 20px; }
+     .et_pb_blurb_content h4 { font-size: 17px; }
+     .et_pb_toggle_title { font-size: 17px; }
+     .site-footer .et_pb_text h1 { font-size: 20px; }
+     .site-footer .et_pb_text p, .site-footer .et_pb_text a { font-size: 14px; }
+}
 
-        /* Utility Classes */
-        .desktop-only { display: block; }
-        .mobile-tablet-only { display: none; }
-        /* Add 'ETmodules' font-face definition if you have the font file */
-        /* @font-face { font-family: 'ETmodules'; src: url('path/to/etmodules.woff'); } */
-         .icon-check::before { content: '\\4e'; /* Divi checkmark icon code */ font-family: 'ETmodules', sans-serif; /* Use the icon font */ display: inline-block; margin-right: 5px; /* Spacing */ }
+/* Utility Classes */
+.desktop-only { display: block; }
+.mobile-tablet-only { display: none; }
+/* Add 'ETmodules' font-face definition if you have the font file */
+/* @font-face { font-family: 'ETmodules'; src: url('path/to/etmodules.woff'); } */
+ .icon-check::before { content: '\\4e'; /* Divi checkmark icon code */ font-family: 'ETmodules', sans-serif; /* Use the icon font */ display: inline-block; margin-right: 5px; /* Spacing */ }
 
-         /* Halloween Specific Overrides */
-        .et_pb_section { background-color: #1a1a1a; }
-        .et_pb_section:nth-child(odd) { background-color: #2a003a; /* Dark purple alternate */ }
-        .site-footer { background-color: #000000; }
+ /* Halloween Specific Overrides */
+.et_pb_section { background-color: #1a1a1a; }
+.et_pb_section:nth-child(odd) { background-color: #2a003a; /* Dark purple alternate */ }
+.site-footer { background-color: #000000; }
 
-        /* What you get section - icons and text */
-        .et_pb_section .et_pb_text .char-item-flex .char-icon-large { color: #ff6f00; } /* Orange icons */
-        .char-label-simple { color: #ff9900; } /* Gold-orange for char labels */
-        .char-value-simple { color: #f0f0f0; }
-        .char-value-simple strong { color: #ff6f00; } /* Orange bold */
-        .char-value-simple em { color: #d0d0d0; } /* Lighter gray for emphasis */
-        .char-value-simple em strong { color: #ff9900; } /* Gold-orange bold in emphasis */
+/* What you get section - icons and text */
+.et_pb_section .et_pb_text .char-item-flex .char-icon-large { color: #ff6f00; } /* Orange icons */
+.char-label-simple { color: #ff9900; } /* Gold-orange for char labels */
+.char-value-simple { color: #f0f0f0; }
+.char-value-simple strong { color: #ff6f00; } /* Orange bold */
+.char-value-simple em { color: #d0d0d0; } /* Lighter gray for emphasis */
+.char-value-simple em strong { color: #ff9900; } /* Gold-orange bold in emphasis */
 
-        /* Add styling for the select dropdown to match other fields */
-        .et_pb_contact_field select {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #a020f0; /* Purple border */
-            border-radius: 3px;
-            font-family: 'Noto Sans', sans-serif;
-            font-weight: 300;
-            font-size: 16px;
-            background-color: #2a003a; /* Dark purple field background */
-            color: #f0f0f0; /* Default field text color */
-            box-sizing: border-box;
-            transition: border-color 0.3s ease, background-color 0.3s ease;
-             /* Add arrow appearance if needed, browser defaults often work ok */
-             appearance: none; /* Optional: remove default system arrow */
-             background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6f00%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Simple orange arrow */
-             background-repeat: no-repeat;
-             background-position: right 10px center;
-             background-size: 12px auto;
-             padding-right: 35px; /* Make space for the arrow */
-         }
-         /* Focus styles for select */
-         .et_pb_contact_field select:focus {
-             outline: none;
-             border-color: #ff6f00; /* Example focus color */
-             background-color: #330033; /* Focus background */
-             color: #f0f0f0; /* Focus text color */
-         }
+/* Add styling for the select dropdown to match other fields */
+.et_pb_contact_field select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #a020f0; /* Purple border */
+    border-radius: 3px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    background-color: #2a003a; /* Dark purple field background */
+    color: #f0f0f0; /* Default field text color */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+     /* Add arrow appearance if needed, browser defaults often work ok */
+     appearance: none; /* Optional: remove default system arrow */
+     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6f00%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Simple orange arrow */
+     background-repeat: no-repeat;
+     background-position: right 10px center;
+     background-size: 12px auto;
+     padding-right: 35px; /* Make space for the arrow */
+ }
+ /* Focus styles for select */
+ .et_pb_contact_field select:focus {
+     outline: none;
+     border-color: #ff6f00; /* Example focus color */
+     background-color: #330033; /* Focus background */
+     color: #f0f0f0; /* Focus text color */
+ }
 
-        .characteristics-list-with-icons {
-            max-width: 650px;
-            margin: 0 auto;
-        }
-        .char-item-flex {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #4a004a; /* Darker purple border */
-        }
-         .char-item-flex:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        .char-icon-large {
-            font-size: 32px;
-            line-height: 1.2;
-            color: #ff6f00; /* Orange icons */
-            margin-right: 20px;
-            flex-shrink: 0;
-             width: 40px;
-             text-align: center;
-        }
-        .char-text-content {
-            flex-grow: 1;
-        }
-        .char-label-simple {
-            display: block;
-            font-weight: 700;
-            font-size: 18px;
-            color: #ff9900; /* Gold-orange for labels */
-            margin-bottom: 5px;
-            font-family: 'Open Sans', sans-serif;
-        }
-        .char-value-simple {
-            font-size: 16px;
-            color: #f0f0f0;
-            line-height: 1.6;
-            font-family: 'Noto Sans', sans-serif;
-        }
-        .char-value-simple strong {
-            font-weight: 700;
-            color: #ff6f00; /* Orange bold */
-        }
-        .char-value-simple em {
-             display: block;
-             font-size: 15px;
-             color: #d0d0d0;
-             margin-top: 4px;
-             font-style: normal;
-         }
-         .char-value-simple em strong {
-             font-weight: 700;
-             color: #ff9900; /* Gold-orange bold in emphasis */
-         }
+.characteristics-list-with-icons {
+    max-width: 650px;
+    margin: 0 auto;
+}
+.char-item-flex {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #4a004a; /* Darker purple border */
+}
+ .char-item-flex:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.char-icon-large {
+    font-size: 32px;
+    line-height: 1.2;
+    color: #ff6f00; /* Orange icons */
+    margin-right: 20px;
+    flex-shrink: 0;
+     width: 40px;
+     text-align: center;
+}
+.char-text-content {
+    flex-grow: 1;
+}
+.char-label-simple {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    color: #ff9900; /* Gold-orange for labels */
+    margin-bottom: 5px;
+    font-family: 'Open Sans', sans-serif;
+}
+.char-value-simple {
+    font-size: 16px;
+    color: #f0f0f0;
+    line-height: 1.6;
+    font-family: 'Noto Sans', sans-serif;
+}
+.char-value-simple strong {
+    font-weight: 700;
+    color: #ff6f00; /* Orange bold */
+}
+.char-value-simple em {
+     display: block;
+     font-size: 15px;
+     color: #d0d0d0;
+     margin-top: 4px;
+     font-style: normal;
+ }
+ .char-value-simple em strong {
+     font-weight: 700;
+     color: #ff9900; /* Gold-orange bold in emphasis */
+ }
 
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-             .char-icon-large {
-                 font-size: 28px;
-                 margin-right: 15px;
-                 width: 35px;
-             }
-             .char-label-simple {
-                 font-size: 17px;
-             }
-             .char-value-simple {
-                 font-size: 15px;
-             }
-              .char-value-simple em {
-                  font-size: 14px;
-              }
-         }
+/* Responsive adjustments */
+@media (max-width: 600px) {
+     .char-icon-large {
+         font-size: 28px;
+         margin-right: 15px;
+         width: 35px;
+     }
+     .char-label-simple {
+         font-size: 17px;
+     }
+     .char-value-simple {
+         font-size: 15px;
+     }
+      .char-value-simple em {
+          font-size: 14px;
+      }
+ }
