@@ -9,7 +9,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Arial', cursive; /* Fallbacks for iOS */
+            font-family:  'Arial', cursive; /* Fallbacks for iOS */
             font-weight: 700;
             color: #ff6f00; /* Halloween orange for headings */
             margin-top: 0;
@@ -114,7 +114,7 @@
             /*border-bottom: 2px dashed #ff6f00;*/
         }
         .et_pb_countdown_timer h4.title {
-            font-family: 'Creepster', cursive;
+            font-family: 'Arial', cursive;
             font-weight: 700;
             font-style: normal;
             text-transform: uppercase;
@@ -190,7 +190,7 @@
         }
 
         /* Text Module Basic */
-        .et_pb_text h1, .et_pb_text h2, .et_pb_text h3, .et_pb_text h4 { color: #ff6f00; font-family: 'Creepster', cursive;}
+        .et_pb_text h1, .et_pb_text h2, .et_pb_text h3, .et_pb_text h4 { color: #ff6f00; font-family: 'Arial', cursive;}
         .et_pb_text p, .et_pb_text li { font-size: 16px; color: #f0f0f0;}
         .et_pb_text ul { padding-left: 20px; margin-bottom: 1rem; }
         .et_pb_text li { margin-bottom: 0.5rem; }
