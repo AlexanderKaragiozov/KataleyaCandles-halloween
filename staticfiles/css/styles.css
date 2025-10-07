@@ -9,7 +9,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Creepster', 'Arial', cursive; /* Fallbacks for iOS */
+            font-family: 'Arial', cursive; /* Fallbacks for iOS */
             font-weight: 700;
             color: #ff6f00; /* Halloween orange for headings */
             margin-top: 0;
