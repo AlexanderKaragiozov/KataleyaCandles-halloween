@@ -9,15 +9,21 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Creepster', cursive; /* Spooky font for headings */
+            font-family: 'Creepster', 'Arial', cursive; /* Fallbacks for iOS */
             font-weight: 700;
             color: #ff6f00; /* Halloween orange for headings */
             margin-top: 0;
             margin-bottom: 1rem;
             line-height: 1.2em;
+
+            /* Smoothing for better rendering */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
+
+            /* Optional: prevent iOS from resizing text automatically */
+            -webkit-text-size-adjust: 100%;
+            }
+
         h1 { font-size: 3.5rem; } /* Larger for impact */
         h2 { font-size: 2.8rem; }
         h3 { font-size: 2.2rem; }
