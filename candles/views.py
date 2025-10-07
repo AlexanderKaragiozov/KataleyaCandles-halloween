@@ -3,8 +3,9 @@ from django.shortcuts import render, redirect
 from .spreadsheet import append_to_sheet
 
 # Create your views here.
-
-def index(request,slug):
+def index(request):
+    return redirect('halloween',slug='halloween')
+def halloween(request,slug):
     if slug == 'halloween':
         return render(request, 'SpookyFun.html')
     else:
@@ -41,3 +42,12 @@ def order_complete(request ,slug):
             raise PermissionDenied
     else:
         raise PermissionDenied
+
+def cookies(request):
+    return render(request, "cookies.html")
+
+def privacy(request):
+    return render(request, "lichni-danni.html")
+
+def tos(request):
+    return render(request, "tos.html")

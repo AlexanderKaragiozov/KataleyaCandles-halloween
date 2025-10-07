@@ -67,7 +67,8 @@
         .et_pb_column_3_4 { flex-basis: calc(75% - 7.5px); } /* Adjust for gap */
 
         /* Images */
-        img { max-width: 100%; height: auto; display: block;}
+        img { max-width: 100%; height: auto; display: block;
+            border-radius: 1rem;  }
 
         /* Buttons */
         .et_pb_button {
@@ -102,7 +103,7 @@
             background-color: #330033; /* Dark purple background */
             padding: 25px 0;
             text-align: center;
-            border-bottom: 3px dashed #ff6f00;
+            /*border-bottom: 2px dashed #ff6f00;*/
         }
         .et_pb_countdown_timer h4.title {
             font-family: 'Creepster', cursive;
@@ -410,3 +411,108 @@
         .char-value-simple strong { color: #ff6f00; } /* Orange bold */
         .char-value-simple em { color: #d0d0d0; } /* Lighter gray for emphasis */
         .char-value-simple em strong { color: #ff9900; } /* Gold-orange bold in emphasis */
+
+        /* Add styling for the select dropdown to match other fields */
+        .et_pb_contact_field select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #a020f0; /* Purple border */
+            border-radius: 3px;
+            font-family: 'Noto Sans', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            background-color: #2a003a; /* Dark purple field background */
+            color: #f0f0f0; /* Default field text color */
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+             /* Add arrow appearance if needed, browser defaults often work ok */
+             appearance: none; /* Optional: remove default system arrow */
+             background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6f00%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Simple orange arrow */
+             background-repeat: no-repeat;
+             background-position: right 10px center;
+             background-size: 12px auto;
+             padding-right: 35px; /* Make space for the arrow */
+         }
+         /* Focus styles for select */
+         .et_pb_contact_field select:focus {
+             outline: none;
+             border-color: #ff6f00; /* Example focus color */
+             background-color: #330033; /* Focus background */
+             color: #f0f0f0; /* Focus text color */
+         }
+
+        .characteristics-list-with-icons {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .char-item-flex {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #4a004a; /* Darker purple border */
+        }
+         .char-item-flex:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .char-icon-large {
+            font-size: 32px;
+            line-height: 1.2;
+            color: #ff6f00; /* Orange icons */
+            margin-right: 20px;
+            flex-shrink: 0;
+             width: 40px;
+             text-align: center;
+        }
+        .char-text-content {
+            flex-grow: 1;
+        }
+        .char-label-simple {
+            display: block;
+            font-weight: 700;
+            font-size: 18px;
+            color: #ff9900; /* Gold-orange for labels */
+            margin-bottom: 5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .char-value-simple {
+            font-size: 16px;
+            color: #f0f0f0;
+            line-height: 1.6;
+            font-family: 'Noto Sans', sans-serif;
+        }
+        .char-value-simple strong {
+            font-weight: 700;
+            color: #ff6f00; /* Orange bold */
+        }
+        .char-value-simple em {
+             display: block;
+             font-size: 15px;
+             color: #d0d0d0;
+             margin-top: 4px;
+             font-style: normal;
+         }
+         .char-value-simple em strong {
+             font-weight: 700;
+             color: #ff9900; /* Gold-orange bold in emphasis */
+         }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+             .char-icon-large {
+                 font-size: 28px;
+                 margin-right: 15px;
+                 width: 35px;
+             }
+             .char-label-simple {
+                 font-size: 17px;
+             }
+             .char-value-simple {
+                 font-size: 15px;
+             }
+              .char-value-simple em {
+                  font-size: 14px;
+              }
+         }
