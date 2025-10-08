@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Open+Sans:wght@700&family=Creepster&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
@@ -321,7 +321,7 @@
                      <div class="char-text-content">
                         <span class="char-label-simple">Размер (прибл.)</span>
                         <span class="char-value-simple">
-                            Височина: <strong>8 см</strong>, Диаметър: <strong>7 см</strong>
+                            Височина: <strong>8 см</strong>
                             <em><strong>Перфектен размер</strong> за декорация на маса, рафт или като част от хелоуин кът.</em>
                         </span>
                      </div>
@@ -420,13 +420,9 @@
                     </div>
 
 
-                     <div class="et_pb_contact_field et_pb_contact_field_checkbox" style="margin-bottom: 30px;">
-                         <label for="et_pb_contact_terms_0">
-                             <input type="checkbox" id="et_pb_contact_terms_0" name="et_pb_contact_terms_0" value="Съгласен съм" required>
-                             Съгласявам се с <a href="URL_TO_TERMS" target="_blank">Общите Условия</a> и <a href="URL_TO_PRIVACY_POLICY" target="_blank">Политиката за защита на лични данни</a>*
-                         </label>
-                     </div>
+
                      <div class="et_contact_bottom_container">
+
 
                             <button type="submit" class="et_pb_button">ПОРЪЧАЙ СЕГА С ОТСТЪПКА</button>
 
@@ -495,37 +491,46 @@
     </section>
 
     <!-- Section 10: Footer -->
-    <footer class="et_pb_section site-footer" style="padding: 20px;">
-        <div class="et_pb_row">
-            <div class="et_pb_column et_pb_column_1_3">
-                <div class="et_pb_text">
-                     <!-- ** UPDATE Business Name, Phone, Email ** -->
+        <footer class="et_pb_section site-footer" style="padding: 20px;">
+            <div class="et_pb_row">
 
-                     <p>За въпроси се свържете с нас на:<br>Телефон: <strong>0888 888 888</strong><br>Email: <strong>contact@nightmagic.com</strong></p>
-                 </div>
+                <!-- Column 1: Business Info & Social Icons -->
+                <div class="et_pb_column et_pb_column_1_3">
+                    <div class="et_pb_text">
+                        <!-- ** UPDATE Business Name, Phone, Email ** -->
+
+                    </div>
+                    <div class="social-icons-wrapper" >
+                        <p>За въпроси се свържете с нас в <b>социалните ни мрежи</b>:</p>
+                        <a href="https://www.facebook.com/profile.php?id=61573449620372" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f social-icon"></i></a>
+                        <a href="https://www.instagram.com/kataleyacandle/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram social-icon"></i></a>
+                        <a href="https://www.tiktok.com/@kataleyacandle" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok social-icon"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Legal Links (Policy, Terms) -->
+                <div class="et_pb_column et_pb_column_1_3">
+
+                    <div class="et_pb_text">
+                        <p><a href="{% url "tos" %}" target="_blank">Общи условия</a></p>
+                    </div>
+                </div>
+
+                <!-- Column 3: Legal Links (Cookies) and potentially more -->
+                <div class="et_pb_column et_pb_column_1_3">
+                    <div class="et_pb_text">
+                        <p><a href="{% url "cookies" %}" target="_blank">Политика за бисквитки</a></p>
+                    </div>
+                    <!-- Add more links here if needed -->
+                </div>
+
             </div>
-            <div class="et_pb_column et_pb_column_1_3">
-                <div class="et_pb_text">
-                    <!-- ** UPDATE Links ** -->
-                    <p><a href="URL_TO_RETURN_POLICY" target="_blank">Условия за връщане</a></p>
-                 </div>
-                <div class="et_pb_divider"></div>
-                 <div class="et_pb_text">
-                    <p><a href="{% url "tos" %}" target="_blank">Общи условия</a></p>
-                 </div>
-            </div>
-            <div class="et_pb_column et_pb_column_1_3">
-                 <div class="et_pb_text">
-                    <!-- ** UPDATE Links ** -->
-                    <p><a href="{% url "privacy" %}" target="_blank">Защита на личните данни</a></p>
-                 </div>
-                 <div class="et_pb_divider"></div>
-                <div class="et_pb_text">
-                    <p><a href="{% url "cookies" %}" target="_blank">Политика за бисквитки</a></p>
+            <div class="et_pb_row footer-bottom-text">
+                <div class="et_pb_column et_pb_column_4_4">
+                    <p>&copy; {% now "Y" %} KataleyaCandles.eu. All rights reserved.</p>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
     <script>
         // Simple Countdown Timer

@@ -533,3 +533,12 @@ img { max-width: 100%; height: auto; display: block;
           font-size: 14px;
       }
  }
+.social-icons-wrapper i {
+    font-size: 30px;
+    color: white;
+    margin: 0.25rem 0 1rem 0;
+}
+
+.et_contact_bottom_container {
+    margin-top: 1rem;
+}

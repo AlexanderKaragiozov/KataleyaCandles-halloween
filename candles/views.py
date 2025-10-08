@@ -46,8 +46,8 @@ def order_complete(request ,slug):
 def cookies(request):
     return render(request, "cookies.html")
 
-def privacy(request):
-    return render(request, "lichni-danni.html")
+# def privacy(request):
+#     return render(request, "lichni-danni.html")
 
 def tos(request):
     return render(request, "tos.html")
