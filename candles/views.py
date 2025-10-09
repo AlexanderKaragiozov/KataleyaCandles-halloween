@@ -14,10 +14,10 @@ def halloween(request,slug):
 def place_order(request , slug):
 
     pricing = {
-        1:"12", # 1 candle
-        2:"22", # 2 candles
-        3:"30", # 3 candles
-        4:"38", # 4 candles
+        1:"15", # 1 candle
+        2:"26", # 2 candles
+        3:"36", # 3 candles
+        4:"44", # 4 candles
     }
     if request.method == "POST":
         spreadsheet_row_data = []
