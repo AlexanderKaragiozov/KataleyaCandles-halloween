@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-lbv2f))rzvgnj1c7_t(%i9ojj7d+afb*skdf_gb6lh64bincq_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','46.10.150.41']
-
+ALLOWED_HOSTS = ['127.0.0.1','46.10.150.41','kataleyacandles.eu', 'www.kataleyacandles.eu']
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 # Application definition
 
@@ -51,7 +52,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'KataleyaCandles.urls'
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://kataleyacandles.eu',
+    'https://www.kataleyacandles.eu'
+]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
