@@ -8,6 +8,7 @@ let cart = {
 const DISCOUNT_RULES = [
     { threshold: 4, percent: 0.27 },
     { threshold: 3, percent: 0.20 },
+    { threshold: 3, percent: 0.20 }, // Redundant but harmless, keeping from verify
     { threshold: 2, percent: 0.13 }
 ];
 
