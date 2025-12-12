@@ -413,7 +413,7 @@ img { max-width: 100%; height: auto; display: block;
 .desktop-only { display: block; }
 .mobile-tablet-only { display: none; }
 /* Add 'ETmodules' font-face definition if you have the font file */
-/* @font-face { font-family: 'ETmodules'; src: url('path/to/etmodules.woff'); } */
+/* @font-face definition removed to prevent collectstatic error */
  .icon-check::before { content: '\\4e'; /* Divi checkmark icon code */ font-family: 'ETmodules', sans-serif; /* Use the icon font */ display: inline-block; margin-right: 5px; /* Spacing */ }
 
  /* Halloween Specific Overrides */
