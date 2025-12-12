@@ -45,8 +45,8 @@ function showUpsell1() {
                 <h4 class="font-bold text-gray-800">${recommendation.name}</h4>
                 <p class="text-xs text-gray-500">${recommendation.scent}</p>
                 <div class="mt-1">
-                    <span class="text-christmas-red font-bold">${formatPrice(recommendation.price * 0.87)}</span>
-                    <span class="text-xs text-gray-400 line-through">${recommendation.price.toFixed(2)} лв.</span>
+                    <span class="text-christmas-red font-bold">${formatPrice(recommendation.price)}</span>
+                    <span class="text-xs text-gray-400 line-through">25.00 лв.</span>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@ function showUpsell2() {
                          class="w-20 h-20 rounded-lg object-cover shadow-sm cursor-pointer hover:opacity-90 transition-opacity">
                     <div>
                         <p class="font-bold text-gray-800 text-sm">${p.name}</p>
-                        <p class="text-xs text-christmas-red font-bold">+${formatPrice(p.price * 0.73)}</p>
+                        <p class="text-xs text-christmas-red font-bold">+${formatPrice(p.price)}</p>
                     </div>
                 </div>
             </label>
