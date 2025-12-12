@@ -1,0 +1,22 @@
+2025-12-12 22:10:54.472099: Error submitting order to Google Sheets: <Response [200]>
+2025-12-12 22:11:04.211737: Error submitting order to Google Sheets: <Response [200]>
+2025-12-12 22:12:56.673762: Error submitting order to Google Sheets: <Response [200]>
+Traceback (most recent call last):
+  File "C:\Users\akara\OneDrive\Desktop\Проекти\KataleyaCandles\.venv\Lib\site-packages\gspread\client.py", line 147, in open
+    properties = finditem(
+        lambda x: x["name"] == title,
+        spreadsheet_files,
+    )
+  File "C:\Users\akara\OneDrive\Desktop\Проекти\KataleyaCandles\.venv\Lib\site-packages\gspread\utils.py", line 224, in finditem
+    return next(item for item in seq if func(item))
+StopIteration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\akara\OneDrive\Desktop\Проекти\KataleyaCandles\candles\sheets_service.py", line 39, in submit_order
+    spreadsheet = client.open(SHEET_NAME)
+  File "C:\Users\akara\OneDrive\Desktop\Проекти\KataleyaCandles\.venv\Lib\site-packages\gspread\client.py", line 152, in open
+    raise SpreadsheetNotFound(response) from ex
+gspread.exceptions.SpreadsheetNotFound: <Response [200]>
+

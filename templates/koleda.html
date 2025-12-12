@@ -1,0 +1,911 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коледни Свещи - Перфектният Подарък</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&family=Open+Sans:wght@700&family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon.ico' %}">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS to apply specific color palette and overrides -->
+    <style>
+        /* Custom Color Variables for consistency */
+        :root {
+            --primary-red: #C41E3A;
+            --primary-green: #165B33;
+            --accent-gold: #FFD700;
+            --creamy-white: #FFF8F0;
+            --dark-neutral: #2D2D2D;
+            --snow-white: #FFFFFF;
+            --holly-red: #BB2528;
+            --pine-green: #146B3A;
+        }
+
+        /* Base styles using custom colors and Tailwind's font utilities */
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            color: var(--dark-neutral);
+            background: linear-gradient(180deg, var(--creamy-white) 0%, #FFF5E6 50%, var(--creamy-white) 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--primary-red);
+        }
+
+        /* Christmas Font for special headings */
+        .christmas-title {
+            font-family: 'Mountains of Christmas', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Snowfall Animation */
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            text-shadow: 0 0 5px rgba(255,255,255,0.8);
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Twinkling stars effect */
+        .twinkle {
+            animation: twinkle 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.7; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* Countdown Timer */
+        .et_pb_countdown_timer {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--holly-red) 100%);
+            border-top: 4px solid var(--accent-gold);
+            border-bottom: 4px solid var(--accent-gold);
+            color: var(--creamy-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .et_pb_countdown_timer::before,
+        .et_pb_countdown_timer::after {
+            content: '❄';
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.3);
+            animation: twinkle 2s ease-in-out infinite alternate;
+        }
+
+        .et_pb_countdown_timer::before {
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .et_pb_countdown_timer::after {
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .et_pb_countdown_timer .title {
+            color: var(--creamy-white);
+        }
+        .et_pb_countdown_timer .sections {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 2rem;
+        }
+        .et_pb_countdown_timer .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .et_pb_countdown_timer .value {
+            font-family: 'Mountains of Christmas', cursive;
+            font-weight: bold;
+            font-size: 1.4em;
+            color: var(--snow-white);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .et_pb_countdown_timer .label {
+            font-size: 0.5em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+        .et_pb_countdown_timer .sep {
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            padding-top: 10px;
+            color: var(--accent-gold);
+        }
+
+        /* Fullwidth Image Section */
+        .fullwidth-image-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--pine-green) 100%);
+            border-top: 4px solid var(--accent-gold);
+            border-bottom: 4px solid var(--accent-gold);
+            position: relative;
+        }
+
+        .fullwidth-image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ctext x='30' y='35' font-size='20' text-anchor='middle' fill='rgba(255,255,255,0.05)'%3E❄%3C/text%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* Benefits Overview Icons and Headings */
+        .benefit-icon {
+            color: var(--accent-gold);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-icon:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .benefit-heading {
+            color: var(--pine-green);
+        }
+
+        /* Christmas ornament decoration */
+        .ornament-decoration {
+            position: relative;
+        }
+
+        .ornament-decoration::before {
+            content: '🎄';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        /* Buttons */
+        .primary-button {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--holly-red) 100%);
+            color: var(--snow-white);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .primary-button:hover {
+            background: linear-gradient(135deg, var(--pine-green) 0%, var(--primary-green) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(22, 91, 51, 0.5);
+        }
+
+        .primary-button:hover::before {
+            left: 100%;
+        }
+
+        /* Why Choose Section */
+        .why-choose-section {
+            background: linear-gradient(180deg, var(--primary-green) 0%, var(--pine-green) 100%);
+            color: var(--creamy-white);
+            position: relative;
+        }
+
+        .why-choose-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='50' y='55' font-size='30' text-anchor='middle' fill='rgba(255,255,255,0.03)'%3E🎄%3C/text%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .why-choose-section h1 {
+            color: var(--accent-gold);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .why-choose-section h2 {
+            color: var(--snow-white);
+        }
+        .why-choose-section p {
+            color: var(--creamy-white);
+        }
+
+        /* Order Form Section */
+        .order-form-section {
+            background: linear-gradient(180deg, var(--creamy-white) 0%, #FFF5E6 100%);
+            position: relative;
+        }
+
+        .order-form-section h1 {
+            color: var(--primary-red);
+        }
+        .order-form-section h1 .highlight {
+            color: var(--pine-green);
+            font-weight: bold;
+        }
+        .order-form-container {
+            border: 3px solid var(--accent-gold);
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--creamy-white) 100%);
+            position: relative;
+        }
+
+        .order-form-container::before {
+            content: '🎁';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            background: var(--creamy-white);
+            padding: 0 10px;
+        }
+
+        .form-input-label {
+            color: var(--dark-neutral);
+        }
+        .form-input {
+            border: 2px solid var(--accent-gold);
+            background-color: #FFFFFF;
+            color: var(--dark-neutral);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--pine-green);
+            box-shadow: 0 0 10px rgba(22, 91, 51, 0.2);
+        }
+
+        .form-small-text {
+            color: #6a6a6a;
+        }
+
+        /* FAQ Toggle specific styles */
+        .et_pb_toggle {
+            background-color: var(--creamy-white);
+            border: 2px solid var(--accent-gold);
+            transition: transform 0.2s ease;
+        }
+
+        .et_pb_toggle:hover {
+            transform: translateX(5px);
+        }
+
+        .et_pb_toggle_title {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--holly-red) 100%);
+            color: var(--creamy-white);
+            position: relative;
+        }
+        .et_pb_toggle_title::after {
+            content: '❄';
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        .et_pb_toggle_open .et_pb_toggle_title::after {
+            content: '⭐';
+            transform: translateY(-50%) rotate(180deg);
+        }
+        .et_pb_toggle_content {
+            background-color: #FFFFFF;
+            color: var(--dark-neutral);
+            border-top: 2px solid var(--accent-gold);
+            display: none;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(180deg, var(--primary-green) 0%, #0D3D22 100%);
+            color: var(--creamy-white);
+            position: relative;
+        }
+
+        .site-footer::before {
+            content: '🎄 🎁 ❄ 🎄 🎁 ❄ 🎄 🎁 ❄';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 1rem;
+            opacity: 0.3;
+            transform: translateY(-50%);
+        }
+
+        .site-footer a {
+            color: var(--accent-gold);
+        }
+        .site-footer a:hover {
+            color: var(--snow-white);
+        }
+        .social-icon {
+            color: var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            color: var(--snow-white);
+            transform: scale(1.2);
+        }
+        .footer-bottom-border {
+            border-color: rgba(248, 244, 227, 0.2);
+        }
+
+        /* Festive divider */
+        .festive-divider {
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 1.5rem;
+            letter-spacing: 1rem;
+            opacity: 0.6;
+        }
+
+        /* Glow effect for images */
+        .christmas-glow {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3), 0 10px 40px rgba(0,0,0,0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .christmas-glow:hover {
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.5), 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        /* Ribbon decoration */
+        .ribbon-corner {
+            position: relative;
+        }
+
+        .ribbon-corner::before {
+            content: '🎀';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 2rem;
+            z-index: 10;
+        }
+
+        /* Custom Order for desktop (for Why Choose section) */
+        @media (min-width: 768px) {
+            .custom-stack-order .order-first-md { order: 2; }
+            .custom-stack-order .order-last-md { order: 1; }
+        }
+        /* Hide/Show for responsiveness */
+        @media (max-width: 767px) {
+            .md\:block { display: none; }
+            .md\:hidden { display: block; }
+            .et_pb_countdown_timer::before,
+            .et_pb_countdown_timer::after {
+                display: none;
+            }
+        }
+        @media (min-width: 768px) {
+            .md\:block { display: block; }
+            .md\:hidden { display: none; }
+        }
+
+        /* Pulse animation for CTA */
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(196, 30, 58, 0.7), 0 0 40px rgba(255, 215, 0, 0.3);
+            }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1456010509018339');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1456010509018339&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Snowfall Effect -->
+    <div class="snowflakes" aria-hidden="true" id="snowflakes"></div>
+
+    <!-- Section 1: Countdown Timer -->
+    <section class="py-0">
+        <div class="container mx-auto px-4">
+            <div class="w-full">
+                <div class="et_pb_countdown_timer text-center py-6">
+                    <h4 class="title text-2xl mb-4 font-heading christmas-title" data-date="2025-12-25 23:59">
+                        🎄 Празнична Коледна Отстъпка! Вземи Свещи с до 27% Отстъпка 🎄
+                    </h4>
+                    <div class="sections">
+                        <!-- Countdown sections will be generated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Fullwidth Image -->
+    <section class="py-0 fullwidth-image-section">
+        <img class="w-full h-auto relative z-10" src="{% static 'images/christmas-banner-classic.png' %}" alt="Коледни Свещи">
+    </section>
+
+    <!-- Section 3: Benefits Overview -->
+    <section class="bg-creamy-white py-8 px-4">
+        <div class="container mx-auto">
+            <div class="w-full text-center mb-10">
+                <h1 class="text-4xl md:text-5xl mb-4 font-heading christmas-title">
+                    🎄 Коледни Свещи 🎄
+                </h1>
+                <p class="text-xl text-gray-600">Перфектният Подарък, Който Създава Коледно Настроение</p>
+            </div>
+
+            <div class="festive-divider">❄ 🎁 ❄ 🎁 ❄</div>
+
+            <div class="flex flex-wrap -mx-4 items-center">
+                <div class="w-full md:w-1/2 px-4">
+                    <!-- Benefit 1 -->
+                    <div class="flex items-start mb-6 text-left">
+                        <div class="benefit-icon text-4xl mr-4 flex-shrink-0 twinkle">🎄</div>
+                        <div>
+                            <h4 class="benefit-heading text-xl mb-1 font-heading">Идеалният Коледен Подарък</h4>
+                            <p class="text-lg">Забрави безкрайното търсене! Нашите свещи са <strong class="font-bold">специален и запомнящ се подарък</strong>, който ще донесе усмивка на всяка дама – майка, сестра, приятелка или колежка.</p>
+                        </div>
+                    </div>
+
+                    <!-- Benefit 2 -->
+                    <div class="flex items-start mb-6 text-left">
+                        <div class="benefit-icon text-4xl mr-4 flex-shrink-0 twinkle" style="animation-delay: 0.3s;">✨</div>
+                        <div>
+                            <h4 class="benefit-heading text-xl mb-1 font-heading">Създай Вълшебен Уют</h4>
+                            <p class="text-lg">Нежният аромат и топлата светлина изпълват дома с <strong class="font-bold">магия и настроение</strong>. Усети уюта на Коледа с всяко запалване.</p>
+                        </div>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div class="flex items-start mb-6 text-left">
+                        <div class="benefit-icon text-4xl mr-4 flex-shrink-0 twinkle" style="animation-delay: 0.6s;">🎁</div>
+                        <div>
+                            <h4 class="benefit-heading text-xl mb-1 font-heading">Ръчна Изработка и Качество</h4>
+                            <p class="text-lg">Всяка свещ е <strong class="font-bold">изработена на ръка</strong> с внимание и любов от висококачествени материали, за да изглежда прекрасно и да ухае още по-прекрасно.</p>
+                        </div>
+                    </div>
+
+                    <!-- Benefit 4 -->
+                    <div class="flex items-start mb-6 text-left">
+                        <div class="benefit-icon text-4xl mr-4 flex-shrink-0 twinkle" style="animation-delay: 0.9s;">🚚</div>
+                        <div>
+                            <h4 class="benefit-heading text-xl mb-1 font-heading">Бърза и Удобна Доставка</h4>
+                            <p class="text-lg">Поръчваш за минути – ние ще се погрижим подаръкът да стигне <strong class="font-bold">бързо и сигурно</strong> до теб или човека, когото искаш да изненадаш (Speedy/Econt).</p>
+                        </div>
+                    </div>
+
+                    <!-- Benefit 5 -->
+                    <div class="flex items-start mb-6 text-left">
+                        <div class="benefit-icon text-4xl mr-4 flex-shrink-0 twinkle" style="animation-delay: 1.2s;">🎀</div>
+                        <div>
+                            <h4 class="benefit-heading text-xl mb-1 font-heading">Готов за Подаряване</h4>
+                            <p class="text-lg">Не мисли за опаковка и детайли – свещта пристига <strong class="font-bold">красиво опакована</strong> и готова да впечатли още щом се отвори кутията.</p>
+                        </div>
+                    </div>
+
+                    <!-- Benefit 6 -->
+                    <div class="flex items-start mb-6 text-left">
+                        <div class="benefit-icon text-4xl mr-4 flex-shrink-0 twinkle" style="animation-delay: 1.5s;">🍊</div>
+                        <div>
+                            <h4 class="benefit-heading text-xl mb-1 font-heading">Празничен Аромат на Коледа</h4>
+                            <p class="text-lg">От канела и портокал до топъл кедър и ванилия – нашите аромати са <strong class="font-bold">топли, деликатни и незабравими</strong>. Перфектният финален щрих за зимната магия.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 px-4 mt-6 md:mt-0">
+                    <div class="ribbon-corner">
+                        <img class="max-w-full h-auto rounded-lg christmas-glow" src="{% static 'images/christmas-candles-classic.png' %}" alt="Коледни свещи създават уют">
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full text-center mt-10">
+                <a href="#order-form" class="primary-button pulse-glow inline-block py-4 px-8 rounded-lg uppercase font-bold text-lg tracking-wide">
+                    🎁 ПОРЪЧАЙ СЕГА С 27% ОТСТЪПКА 🎁
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Why Choose (Desktop Layout) -->
+<section class="why-choose-section py-12 px-4 md:block hidden">
+    <div class="container mx-auto relative z-10">
+        <div class="w-full text-center mb-12">
+            <h1 class="text-4xl md:text-5xl mb-4 font-heading christmas-title">
+                ⭐ Защо да избереш нашите свещи за Коледа? ⭐
+            </h1>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="flex flex-wrap -mx-4 items-center mb-14 custom-stack-order">
+            <div class="w-full md:w-1/2 px-4 order-first-md">
+                <div class="ribbon-corner">
+                    <img src="{% static 'images/christmas-gift-1.png' %}" alt="Коледна свещ с празничен уют" class="max-w-full h-auto rounded-lg christmas-glow">
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 px-4 order-last-md">
+                <div>
+                    <h2 class="text-2xl font-heading mb-4">🎁 Повече от свещ – емоция и спомен</h2>
+                    <p class="text-lg mb-4">Нашите свещи не са просто декорация. Те носят <strong class="font-bold">топлина, уют и празнична атмосфера</strong>, която превръща всеки дом в коледна приказка.</p>
+                    <p class="text-lg">Когато ги подаряваш, даряваш <strong class="font-bold">емоция и спомен</strong> – малък жест, който стопля сърцето. Идеални за <strong class="font-bold">майки, сестри, приятелки или колежки</strong> – всяка жена, която обича уют и стил.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="festive-divider text-white">❄ 🎄 ❄ 🎄 ❄</div>
+
+        <!-- Row 2 -->
+        <div class="flex flex-wrap -mx-4 items-center mb-14">
+            <div class="w-full md:w-1/2 px-4">
+                <div>
+                    <h2 class="text-2xl font-heading mb-4">⏰ Спести време и нерви по празниците</h2>
+                    <p class="text-lg mb-4">Коледа наближава, а ти още търсиш идеи за подарък? Забрави хаоса!</p>
+                    <p class="text-lg">Поръчай <strong class="font-bold">лесно и бързо онлайн</strong>, а ние ще се погрижим за всичко – <strong class="font-bold">красивата опаковка</strong> и <strong class="font-bold">бързата доставка</strong> (1–2 дни с Еконт или Спиди). Ти просто се наслади на празника <strong class="font-bold">без излишен стрес</strong>.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 px-4">
+                <img src="{% static 'images/delivery-christmas.png' %}" alt="Доставка на подаръчна свещ" class="max-w-full h-auto rounded-lg christmas-glow">
+            </div>
+        </div>
+
+        <div class="festive-divider text-white">❄ 🎄 ❄ 🎄 ❄</div>
+
+        <!-- Row 3 -->
+        <div class="flex flex-wrap -mx-4 items-center custom-stack-order">
+            <div class="w-full md:w-1/2 px-4 order-first-md">
+                <img class="h-[600px] w-full object-cover object-center rounded-lg christmas-glow" src="{% static 'images/christmas-candle-making.png' %}" alt="Ръчно изработени ароматни коледни свещи">
+            </div>
+            <div class="w-full md:w-1/2 px-4 order-last-md">
+                <div>
+                    <h2 class="text-2xl font-heading mb-4">✨ Качество и аромат, които впечатляват</h2>
+                    <p class="text-lg mb-4">Използваме само <strong class="font-bold">висококачествен соев восък</strong> и подбрани ароматни масла, за да получиш свещ, която <strong class="font-bold">гори чисто, равномерно и ухае изтънчено</strong>.</p>
+                    <p class="text-lg">Всяка свещ е <strong class="font-bold">ръчно изработена с любов</strong> – малко произведение на изкуството, което носи <strong class="font-bold">уют и грижа</strong> във всеки дом.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4 Alternate: Why Choose (Mobile/Tablet Layout) -->
+<section class="why-choose-section py-8 px-4 md:hidden block">
+    <div class="container mx-auto relative z-10">
+        <div class="w-full text-center mb-8">
+            <h1 class="text-3xl mb-4 font-heading christmas-title">⭐ Защо да избереш Коледни свещи? ⭐</h1>
+        </div>
+
+        <!-- Row 1 Mobile -->
+        <div class="w-full mb-10">
+            <div class="text-center">
+                <h2 class="text-xl font-heading mb-3">🎁 Повече от свещ – емоция и спомен</h2>
+            </div>
+            <img src="{% static 'images/christmas-gift-1.png' %}" alt="Детайл на коледна свещ" class="max-w-full h-auto rounded-lg christmas-glow mb-4">
+            <div>
+                <p class="text-lg">Нашите свещи носят <strong class="font-bold">топлина, уют и празнично настроение</strong>. Подарявайки ги, създаваш <strong class="font-bold">емоция и спомен</strong> – идеален подарък за <strong class="font-bold">майки, сестри, приятелки, колежки</strong>.</p>
+            </div>
+        </div>
+
+        <div class="festive-divider text-white">❄ 🎄 ❄</div>
+
+        <!-- Row 2 Mobile -->
+        <div class="w-full mb-10">
+            <div class="text-center">
+                <h2 class="text-xl font-heading mb-3">⏰ Спести време и нерви по празниците</h2>
+            </div>
+            <img src="{% static 'images/delivery-christmas.png' %}" alt="Доставка на подаръчна свещ" class="max-w-full h-auto rounded-lg christmas-glow mb-4">
+            <div>
+                <p class="text-lg">Коледа идва, а ти още не си избрал подарък? Поръчай <strong class="font-bold">лесно онлайн</strong> и ние ще направим останалото – <strong class="font-bold">опаковка, доставка и усмивки</strong>. Всичко бързо, красиво и без стрес.</p>
+            </div>
+        </div>
+
+        <div class="festive-divider text-white">❄ 🎄 ❄</div>
+
+        <!-- Row 3 Mobile -->
+        <div class="w-full mb-8">
+            <div class="text-center">
+                <h2 class="text-xl font-heading mb-3">✨ Качество и аромат, които впечатляват</h2>
+            </div>
+            <img class="h-[400px] w-full object-cover object-center rounded-lg christmas-glow mb-4" src="{% static 'images/christmas-candle-making.png' %}" alt="Ръчно изработени ароматни свещи">
+            <div>
+                <p class="text-lg">Създаваме всяка свещ с <strong class="font-bold">висококачествен соев восък</strong> и внимателно подбрани аромати. <strong class="font-bold">Ръчно изработена с любов</strong>, тя носи усещане за грижа и красота – подарък, който се помни.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Section 7: Order Form -->
+    <section id="order-form" class="order-form-section py-12 px-4">
+        <div class="container mx-auto">
+            <div class="w-full text-center mb-10">
+                <h1 class="text-3xl md:text-4xl christmas-title">
+                    🎄 Поръчай Сега 4 бр. "Коледна магия" с 27% Отстъпка 🎄
+                </h1>
+                <p class="text-2xl mt-4">
+                    <span class="line-through text-gray-500">52лв</span>
+                    <span class="highlight text-3xl">само за 44 лв.!</span>
+                </p>
+            </div>
+            <div class="flex flex-wrap -mx-4 items-center">
+                <div class="w-full md:w-1/2 px-4 mb-6 md:mb-0">
+                    <div class="ribbon-corner">
+                        <img src="{% static "images/christmas-product-bundle.png" %}" alt="Поръчай Коледни Свещи" class="max-w-full h-auto rounded-lg christmas-glow">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                    <form class="order-form-container bg-creamy-white p-8 rounded-lg shadow-xl pt-10" action="{% url "place-order" slug="christmas" %}" method="post">
+                        {% csrf_token %}
+                        <!-- Hidden fields for product info if needed -->
+                        <input type="hidden" name="product_name" value="Ароматна Коледна Свещ">
+                        <input type="hidden" name="price" value="19.99">
+
+                        <div class="mb-5 text-left">
+                            <label for="et_pb_contact_name_0" class="form-input-label block mb-2 font-bold">🎅 Име и фамилия*</label>
+                            <input type="text" id="et_pb_contact_name_0" name="full_name" required class="form-input w-full p-3 rounded-md focus:outline-none">
+                        </div>
+                        <div class="mb-5 text-left">
+                            <label for="et_pb_contact_phone_0" class="form-input-label block mb-2 font-bold">📞 Телефон*</label>
+                            <input type="tel" id="et_pb_contact_phone_0" name="phone_number" required pattern="[0-9\s+]{9,}" title="Въведете валиден телефонен номер" class="form-input w-full p-3 rounded-md focus:outline-none">
+                        </div>
+                        <div class="mb-5 text-left">
+                             <label for="et_pb_contact_address_0" class="form-input-label block mb-2 font-bold">📍 Адрес/офис за доставка със Speedy/Econt*</label>
+                            <textarea id="et_pb_contact_address_0" name="delivery_address" required rows="3" class="form-input w-full p-3 rounded-md focus:outline-none"></textarea>
+                             <small class="form-small-text text-sm mt-1 block">Моля, посочете град, офис на куриер (Еконт/Спиди) ИЛИ точен адрес.</small>
+                         </div>
+
+                        <div class="mb-5 text-left">
+                            <label for="et_pb_contact_color_0" class="form-input-label block mb-2 font-bold">🎁 Избери брой*</label>
+                            <select id="et_pb_contact_color_0" name="quantity" required class="form-input w-full p-3 rounded-md focus:outline-none">
+                                <option value="" disabled selected>-- Избери количество --</option>
+                                <option value="1">1бр. - 15лв.</option>
+                                <option value="2">2бр. - 26лв. (ОТСТЪПКА ~13%) 🎄</option>
+                                <option value="3">3бр. - 36лв. (ОТСТЪПКА ~20%) 🎄🎄</option>
+                                <option value="4">4бр. - 44лв. (ОТСТЪПКА ~27%) 🎄🎄🎄</option>
+                            </select>
+                        </div>
+
+                         <div class="text-center mt-8">
+                                <button type="submit" class="primary-button pulse-glow inline-block py-4 px-8 rounded-lg uppercase font-bold text-lg tracking-wide w-full">
+                                    🎁 ПОРЪЧАЙ СЕГА С ОТСТЪПКА 🎁
+                                </button>
+                        </div>
+                        <!-- Redirect URL hidden field (if your processing script uses it) -->
+                        <input type="hidden" name="redirect_url" value="https://zaspi.bg/thank-you-page-template/">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: FAQ -->
+    <section class="bg-creamy-white py-12 px-4">
+        <div class="container mx-auto max-w-3xl">
+            <div class="w-full text-center mb-10">
+                <h1 class="text-4xl mb-4 font-heading christmas-title">❓ Често Задавани Въпроси ❓</h1>
+             </div>
+            <div class="w-full">
+                <div class="et_pb_toggle rounded-md mb-4 overflow-hidden">
+                    <h5 class="et_pb_toggle_title p-4 cursor-pointer font-bold text-lg">Какви точно са ароматите?</h5>
+                    <div class="et_pb_toggle_content p-4">
+                        <p class="text-lg">Нашите коледни свещи са със <strong class="font-bold">силни и уютни аромати</strong>, които комбинират нотки на <strong class="font-bold">канела, портокал, топъл кедър и сладка ванилия</strong>. Целта е да създаде усещане за празничност и топлина, без да е прекалено силен или натрапчив.</p>
+                    </div>
+                </div>
+                 <div class="et_pb_toggle rounded-md mb-4 overflow-hidden">
+                    <h5 class="et_pb_toggle_title p-4 cursor-pointer font-bold text-lg">Колко време горят свещите?</h5>
+                    <div class="et_pb_toggle_content p-4">
+                        <p class="text-lg">При правилна употреба (подрязване на фитила преди всяко палене), всяка коледна свещ гори приблизително <strong class="font-bold">15 часа</strong>. Това ви дава достатъчно време да се насладите на аромата и светлината през целите празнични дни.</p>
+                     </div>
+                </div>
+                 <div class="et_pb_toggle rounded-md mb-4 overflow-hidden">
+                    <h5 class="et_pb_toggle_title p-4 cursor-pointer font-bold text-lg">Какъв е срокът за доставка?</h5>
+                    <div class="et_pb_toggle_content p-4">
+                        <p class="text-lg">Обработваме поръчките бързо. Обикновено доставката отнема <strong class="font-bold">1 до 2 работни дни</strong> след потвърждаване на поръчката, в зависимост от натовареността на куриерите (Еконт/Спиди) и вашето населено място.</p>
+                    </div>
+                </div>
+                <div class="et_pb_toggle rounded-md mb-4 overflow-hidden">
+                    <h5 class="et_pb_toggle_title p-4 cursor-pointer font-bold text-lg">Мога ли да поръчам за подарък на друг адрес?</h5>
+                    <div class="et_pb_toggle_content p-4">
+                        <p class="text-lg"><strong class="font-bold">Да, разбира се!</strong> При попълване на данните за доставка във формуляра, просто въведете името, телефона и адреса (или офис на куриер) на човека, за когото е предназначен подаръкът. Ние ще изпратим пратката директно до него.</p>
+                    </div>
+                </div>
+                 <div class="et_pb_toggle rounded-md mb-4 overflow-hidden">
+                    <h5 class="et_pb_toggle_title p-4 cursor-pointer font-bold text-lg">Какво става, ако свещта пристигне повредена?</h5>
+                    <div class="et_pb_toggle_content p-4">
+                        <p class="text-lg">Въпреки че опаковаме свещите много внимателно, инциденти при транспорт са възможни. Ако получите повредена свещ, моля, <strong class="font-bold">свържете се с нас незабавно</strong> (в рамките на 24 часа след получаване) със снимка на повредата. Ще ви изпратим <strong class="font-bold">нова свещ напълно безплатно</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+         <div class="container mx-auto px-4 pb-12">
+            <div class="w-full text-center">
+                <div class="festive-divider">🎄 🎁 ❄ 🎁 🎄</div>
+                 <div class="mt-8">
+                    <a href="#order-form" class="primary-button pulse-glow inline-block py-4 px-8 rounded-lg uppercase font-bold text-lg tracking-wide">
+                        🎁 ПОРЪЧАЙ БЕЗ РИСК СЕГА 🎁
+                    </a>
+                 </div>
+            </div>
+        </div>
+
+    <!-- Section 10: Footer -->
+        <footer class="site-footer py-10 px-4 text-center">
+            <div class="container mx-auto flex flex-wrap -mx-4 pt-6">
+
+                <!-- Column 1: Business Info & Social Icons -->
+                <div class="w-full md:w-1/3 px-4 mb-6 md:mb-0">
+                    <p class="text-lg mb-4">За въпроси се свържете с нас в <b class="font-bold">социалните ни мрежи</b>:</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://www.facebook.com/profile.php?id=61573449620372" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f social-icon text-3xl transition-all duration-300"></i></a>
+                        <a href="https://www.instagram.com/kataleyacandle/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram social-icon text-3xl transition-all duration-300"></i></a>
+                        <a href="https://www.tiktok.com/@kataleyacandle" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok social-icon text-3xl transition-all duration-300"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Legal Links (Policy, Terms) -->
+                <div class="w-full md:w-1/3 px-4 mb-6 md:mb-0">
+                    <p class="mb-2"><a href="{% url "tos" %}" target="_blank" class="hover:text-creamy-white transition-colors duration-300">Общи условия</a></p>
+                </div>
+
+                <!-- Column 3: Legal Links (Cookies) and potentially more -->
+                <div class="w-full md:w-1/3 px-4">
+                    <p class="mb-2"><a href="{% url "cookies" %}" target="_blank" class="hover:text-creamy-white transition-colors duration-300">Политика за бисквитки</a></p>
+                </div>
+            </div>
+            <div class="w-full pt-8 mt-8 border-t border-solid footer-bottom-border">
+                <p class="text-lg">🎄 Весела Коледа! 🎄</p>
+                <p class="mt-2">&copy; {% now "Y" %} KataleyaCandles.eu. All rights reserved.</p>
+            </div>
+        </footer>
+
+    <script>
+        // Create Snowflakes
+        function createSnowflakes() {
+            const snowflakesContainer = document.getElementById('snowflakes');
+            const snowflakeSymbols = ['❄', '❅', '❆', '✻', '✼', '❉'];
+            const numberOfSnowflakes = 50;
+
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                snowflake.style.animationDelay = Math.random() * 10 + 's';
+                snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+                snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+                snowflakesContainer.appendChild(snowflake);
+            }
+        }
+
+        // Simple Countdown Timer
+        document.addEventListener('DOMContentLoaded', () => {
+            createSnowflakes();
+
+            const countdownElement = document.querySelector('.et_pb_countdown_timer');
+            if (countdownElement) {
+                const targetDate = new Date(countdownElement.querySelector('[data-date]').getAttribute('data-date')).getTime();
+                const sectionsContainer = countdownElement.querySelector('.sections');
+
+                function updateCountdown() {
+                    const now = new Date().getTime();
+                    const distance = targetDate - now;
+
+                    if (distance < 0) {
+                        sectionsContainer.innerHTML = "<p class='text-creamy-white text-lg'>🎄 Промоцията изтече! 🎄</p>";
+                        clearInterval(interval);
+                        return;
+                    }
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    sectionsContainer.innerHTML = `
+                        <div class="section values days"><p class="value">${String(days).padStart(2, '0')}</p><p class="label">Дни</p></div>
+                        <div class="section sep"><p>:</p></div>
+                        <div class="section values hours"><p class="value">${String(hours).padStart(2, '0')}</p><p class="label">Часа</p></div>
+                         <div class="section sep"><p>:</p></div>
+                        <div class="section values minutes"><p class="value">${String(minutes).padStart(2, '0')}</p><p class="label">Минути</p></div>
+                         <div class="section sep"><p>:</p></div>
+                        <div class="section values seconds"><p class="value">${String(seconds).padStart(2, '0')}</p><p class="label">Секунди</p></div>
+                    `;
+                 }
+
+                const interval = setInterval(updateCountdown, 1000);
+                updateCountdown(); // Initial call
+             }
+
+            // Simple Toggle Functionality for FAQ
+            const toggles = document.querySelectorAll('.et_pb_toggle');
+            toggles.forEach(toggle => {
+                const title = toggle.querySelector('.et_pb_toggle_title');
+                const content = toggle.querySelector('.et_pb_toggle_content');
+
+                if (title && content) {
+                    title.addEventListener('click', () => {
+                        const isOpen = toggle.classList.toggle('et_pb_toggle_open');
+                        content.style.display = isOpen ? 'block' : 'none';
+                     });
+                }
+             });
+         });
+    </script>
+
+</body>
+</html>

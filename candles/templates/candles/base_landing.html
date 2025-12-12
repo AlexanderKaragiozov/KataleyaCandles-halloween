@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kataleya Candles - {% block title %}Коледна Магия{% endblock %}</title>
+
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Comfortaa:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        christmas: {
+                            red: '#C41E3A',
+                            green: '#165B33',
+                            gold: '#FFD700',
+                            dark: '#0F2620',
+                            cream: '#FDFBF7'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['"Mountains of Christmas"', 'serif'],
+                        body: ['"Comfortaa"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+
+        // Global Helper for dual currency display
+        function formatPrice(bgn) {
+            const eur = (bgn / 1.95583).toFixed(2);
+            return `${bgn.toFixed(2)} лв. <span class="text-gray-500 text-xs font-normal">(~${eur} €)</span>`;
+        }
+    </script>
+
+    <style>
+        .snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .snowflake {
+            position: absolute;
+            color: white;
+            font-size: 1rem;
+            opacity: 0.8;
+            animation: fall linear infinite;
+            user-select: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh);
+            }
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Modal Transitions */
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .modal:not(.hidden) {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-christmas-cream text-gray-800 font-body overflow-x-hidden">
+    <!-- FIXED_FINAL_V2 -->
+
+    <!-- Snow Effect -->
+    <div id="snow-container" class="snow-container"></div>
+
+    <!-- Navigation / Header -->
+    <header class="fixed w-full z-40 top-0 transition-all duration-300" id="main-header">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-heading text-christmas-red font-bold">Kataleya Candles</a>
+
+            <button id="cart-btn" class="relative p-2 text-christmas-red hover:text-christmas-green transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span id="cart-count"
+                    class="absolute top-0 right-0 bg-christmas-gold text-christmas-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center transform scale-0 transition-transform">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-christmas-dark text-christmas-cream py-10 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="font-heading text-3xl mb-4 text-christmas-gold">Kataleya Candles</h3>
+            <p class="mb-6">Ръчно изработени с любов и коледна магия.</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.facebook.com/profile.php?id=61573449620372" target="_blank"
+                    rel="noopener noreferrer" class="hover:text-christmas-gold transition-colors">Facebook</a>
+                <a href="https://www.instagram.com/kataleyacandle/" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-christmas-gold transition-colors">Instagram</a>
+                <a href="https://www.tiktok.com/@kataleyacandle" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-christmas-gold transition-colors">TikTok</a>
+            </div>
+            <div class="text-sm opacity-60">
+                <a href="{% url 'tos' %}" class="hover:underline">Общи условия</a> |
+                <a href="{% url 'cookies' %}" class="hover:underline">Бисквитки</a>
+            </div>
+            <p class="mt-4 text-xs opacity-40">&copy; 2024 Kataleya Candles. Всички права запазени.</p>
+        </div>
+    </footer>
+
+    <!-- Components -->
+    {% include "candles/components/cart_drawer.html" %}
+    {% include "candles/components/upsell_modal.html" %}
+    {% include "candles/components/checkout_modal.html" %}
+    {% include "candles/components/cross_sell_toast.html" %}
+
+    <!-- Scripts -->
+    <!-- Pass product data to JS -->
+    <script>
+        const CURRENT_PRODUCT = {
+            slug: "{{ candle.slug }}",
+            name: "{{ candle.name }}",
+            price: {{ candle.price }},
+        image: "{% static candle.image %}"
+        };
+        const CANDLE_PRODUCTS = [];
+        {% for c in all_candles %}
+        CANDLE_PRODUCTS.push({
+            slug: "{{ c.slug }}",
+            name: "{{ c.name }}",
+            price: {{ c.price }},
+            image: "{% static c.image %}",
+            is_upsell: {% if c.is_upsell %}true{% else %} false{% endif %}
+        });
+        {% endfor %}
+        const CSRF_TOKEN = '{{ csrf_token }}';
+    </script>
+    <script src="{% static 'candles/js/cart.js' %}"></script>
+    <script src="{% static 'candles/js/upsells.js' %}"></script>
+    <script src="{% static 'candles/js/checkout.js' %}"></script>
+
+    <script>
+        // Snow Effect
+        function createSnow() {
+            const container = document.getElementById('snow-container');
+            const count = 20;
+            const colors = ['#FFFFFF', '#D4F1F4', '#A3E4D7', '#AED6F1']; // White and various blues
+
+            for (let i = 0; i < count; i++) {
+                const flake = document.createElement('div');
+                flake.classList.add('snowflake');
+                flake.innerHTML = '❄'; // Snowflake character
+
+                const size = Math.random() * 1.5 + 0.5; // Font size in rem
+                flake.style.fontSize = `${size}rem`;
+
+                // Random color
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                flake.style.color = color;
+
+                flake.style.left = `${Math.random() * 100}vw`;
+                flake.style.animationDuration = `${Math.random() * 5 + 3}s`; // Slower fall
+                flake.style.animationDelay = `${Math.random() * 5}s`;
+                flake.style.opacity = Math.random();
+
+                container.appendChild(flake);
+            }
+        }
+        createSnow();
+    </script>
+</body>
+
+</html>
