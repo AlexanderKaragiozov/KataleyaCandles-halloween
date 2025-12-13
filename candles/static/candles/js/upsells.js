@@ -1,4 +1,5 @@
 function triggerUpsellFlow() {
+    hideCrossSell(); // Hide toast if active
     const totalItems = cart.items.reduce((acc, item) => acc + item.quantity, 0);
 
     // If 1 item added, show Upsell 1
@@ -145,9 +146,18 @@ function showCrossSellToast() {
     const toast = document.getElementById('cross-sell-toast');
     if (toast) {
         toast.classList.remove('translate-y-full');
+        toast.classList.remove('pointer-events-none'); // Enable interaction
         setTimeout(() => {
-            toast.classList.add('translate-y-full');
+            hideCrossSell();
         }, 8000); // Hide after 8 seconds
+    }
+}
+
+function hideCrossSell() {
+    const toast = document.getElementById('cross-sell-toast');
+    if (toast) {
+        toast.classList.add('translate-y-full');
+        toast.classList.add('pointer-events-none'); // Disable interaction when hidden
     }
 }
 
@@ -203,3 +213,4 @@ window.closeLightbox = closeLightbox;
 window.showHoverPreview = showHoverPreview;
 window.moveHoverPreview = moveHoverPreview;
 window.hideHoverPreview = hideHoverPreview;
+window.hideCrossSell = hideCrossSell;

@@ -20,14 +20,15 @@ def product_detail(request, slug):
         # Fallback to main candle if slug not found, or 404
         return redirect('product_detail', slug='sweet-chocolate')
     
-    # Calculate EUR prices
     context_candle = candle.copy()
     context_candle['price_eur'] = "{:.2f}".format(candle['price'] / 1.95583)
+    context_candle['price_plain'] = "{:.2f}".format(candle['price']) # Safe for JS
     
     context_all_candles = []
     for c in CANDLES:
         c_copy = c.copy()
         c_copy['price_eur'] = "{:.2f}".format(c['price'] / 1.95583)
+        c_copy['price_plain'] = "{:.2f}".format(c['price']) # Safe for JS
         context_all_candles.append(c_copy)
 
     context = {
@@ -35,6 +36,27 @@ def product_detail(request, slug):
         'all_candles': context_all_candles, 
     }
     return render(request, 'candles/product_detail.html', context)
+
+def secret_shop(request):
+    """Hidden page for viewing only upsell items."""
+    upsells = [c for c in CANDLES if c.get('is_upsell', False)]
+    
+    # Calculate EUR prices
+    for c in upsells:
+        c['price_eur'] = "{:.2f}".format(c['price'] / 1.95583)
+
+    context_all_candles = []
+    for c in CANDLES:
+        c_copy = c.copy()
+        c_copy['price_eur'] = "{:.2f}".format(c['price'] / 1.95583)
+        c_copy['price_plain'] = "{:.2f}".format(c['price']) # Safe for JS
+        context_all_candles.append(c_copy)
+
+    context = {
+        'candles': upsells,
+        'all_candles': context_all_candles # Needed for cart drawer or other global components
+    }
+    return render(request, 'candles/secret_shop.html', context)
 
 @csrf_exempt # For simplicity in this demo, though CSRF token is better
 @require_POST

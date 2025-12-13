@@ -153,25 +153,33 @@
     <!-- Pass product data to JS -->
     <script>
         const CURRENT_PRODUCT = {
-            slug: "{{ candle.slug }}",
+            {% if candle %}
+        slug: "{{ candle.slug }}",
             name: "{{ candle.name }}",
-            price: {{ candle.price }},
+                price: { { candle.price_plain } },
         image: "{% static candle.image %}"
+        {% else %}
+        slug: null,
+            name: null,
+                price: 0,
+                    image: null
+        {% endif %}
         };
         const CANDLE_PRODUCTS = [];
         {% for c in all_candles %}
         CANDLE_PRODUCTS.push({
             slug: "{{ c.slug }}",
             name: "{{ c.name }}",
-            price: {{ c.price }},
+            price: {{ c.price_plain }},
             image: "{% static c.image %}",
+            scent: "{{ c.scent }}",
             is_upsell: {% if c.is_upsell %}true{% else %} false{% endif %}
         });
         {% endfor %}
         const CSRF_TOKEN = '{{ csrf_token }}';
     </script>
-    <script src="{% static 'candles/js/cart.js' %}?v=4"></script>
-    <script src="{% static 'candles/js/upsells.js' %}?v=2"></script>
+    <script src="{% static 'candles/js/cart.js' %}?v=5"></script>
+    <script src="{% static 'candles/js/upsells.js' %}?v=3"></script>
     <script src="{% static 'candles/js/checkout.js' %}"></script>
 
     <script>

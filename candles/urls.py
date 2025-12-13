@@ -10,5 +10,6 @@ urlpatterns = [
     path('api/orders/', views.submit_order_api, name='submit-order'),
     
     # Product pages - Catch-all for slugs at the end
+    path('secret-shop/', views.secret_shop, name='secret_shop'), # Before slug catch-all
     path('candles/<slug:slug>/', views.product_detail, name='product_detail'),
 ]
