@@ -4,6 +4,22 @@ function openCheckout() {
 
     updateCheckoutSummary();
 
+    // Meta Pixel: Track InitiateCheckout
+    const totals = calculateTotals();
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'InitiateCheckout', {
+            content_ids: cart.items.map(item => item.slug),
+            contents: cart.items.map(item => ({
+                id: item.slug,
+                quantity: item.quantity,
+                item_price: item.price
+            })),
+            value: totals.total,
+            currency: 'BGN',
+            num_items: totals.totalItems
+        });
+    }
+
     const modal = document.getElementById('checkout-modal');
     if (modal) {
         console.log("Modal found, showing...");
@@ -84,6 +100,21 @@ if (orderForm) {
             const result = await response.json();
 
             if (result.success) {
+                // Meta Pixel: Track Purchase
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Purchase', {
+                        content_ids: cart.items.map(item => item.slug),
+                        contents: cart.items.map(item => ({
+                            id: item.slug,
+                            quantity: item.quantity,
+                            item_price: item.price
+                        })),
+                        value: totals.total,
+                        currency: 'BGN',
+                        num_items: totals.totalItems
+                    });
+                }
+
                 // Success
                 document.getElementById('checkout-modal').classList.add('hidden');
                 document.getElementById('success-order-id').innerText = result.order_id;

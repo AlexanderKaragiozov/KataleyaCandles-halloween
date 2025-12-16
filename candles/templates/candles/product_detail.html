@@ -161,6 +161,17 @@
 </section>
 
 <script>
+    // Meta Pixel: Track ViewContent
+    if (typeof fbq !== 'undefined' && typeof CURRENT_PRODUCT !== 'undefined' && CURRENT_PRODUCT.slug) {
+        fbq('track', 'ViewContent', {
+            content_name: CURRENT_PRODUCT.name,
+            content_ids: [CURRENT_PRODUCT.slug],
+            content_type: 'product',
+            value: CURRENT_PRODUCT.price,
+            currency: 'BGN'
+        });
+    }
+
     // Countdown Timer (Hardcoded to Dec 25th of current year)
     const currentYear = new Date().getFullYear();
     const christmas = new Date(`December 25, ${currentYear} 00:00:00`).getTime();

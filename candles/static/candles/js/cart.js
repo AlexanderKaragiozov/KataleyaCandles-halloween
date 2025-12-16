@@ -87,6 +87,17 @@ function addToCart(slug, quantity = 1) {
         });
     }
 
+    // Meta Pixel: Track AddToCart event
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'AddToCart', {
+            content_name: product.name,
+            content_ids: [product.slug],
+            content_type: 'product',
+            value: product.price * quantity,
+            currency: 'BGN'
+        });
+    }
+
     saveCart();
     openCart(); // Just open cart to show feedback
 }

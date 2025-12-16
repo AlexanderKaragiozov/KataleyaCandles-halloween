@@ -7,6 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kataleya Candles - {% block title %}Коледна Магия{% endblock %}</title>
 
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1655223285852789');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1655223285852789&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- Fonts and Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,16 +175,16 @@
         // prettier-ignore
         const CURRENT_PRODUCT = {
 {% if candle %}
-    slug: "{{ candle.slug }}",
-    name: "{{ candle.name }}",
-    price: {{ candle.price_plain }},
-    image: "{% static candle.image %}"
-{% else %}
-    slug: null,
-    name: null,
-    price: 0,
-    image: null
-{% endif %}
+        slug: "{{ candle.slug }}",
+            name: "{{ candle.name }}",
+                price: {{ candle.price_plain }},
+        image: "{% static candle.image %}"
+        {% else %}
+        slug: null,
+            name: null,
+                price: 0,
+                    image: null
+        {% endif %}
         };
 
         const CANDLE_PRODUCTS = [];
@@ -175,7 +195,7 @@
             price: {{ c.price_plain }},
             image: "{% static c.image %}",
             scent: "{{ c.scent }}",
-            is_upsell: {% if c.is_upsell %}true{% else %}false{% endif %}
+            is_upsell: {% if c.is_upsell %}true{% else %} false{% endif %}
         });
         {% endfor %}
         const CSRF_TOKEN = '{{ csrf_token }}';
